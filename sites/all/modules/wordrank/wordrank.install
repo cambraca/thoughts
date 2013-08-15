@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function wordrank_schema() {
+  return array(
+    'wordrank' => array(
+      'description' => 'Stores individual words and a use count associated to them.',
+      'fields' => array(
+        'word' => array(
+          'description' => 'Individual word in lowercase.',
+          'type' => 'varchar',
+          'length' => 255,
+        ),
+        'rank' => array(
+          'description' => 'Usage count for the word in all the thought nodes.',
+          'type' => 'int',
+          'unsigned' => TRUE,
+          'not null' => TRUE,
+          'default' => 0,
+        ),
+        
+      ),
+      'primary key' => array('word'),
+      'indexes' => array(
+        'rank' => array('rank'),
+      ),
+    ),
+    'wordrank_nodes' => array(
+      'description' => 'Stores nids that have been processed.',
+      'fields' => array(
+        'nid' => array(
+          'description' => 'Node id.',
+          'type' => 'int',
+          'unsigned' => TRUE,
+          'not null' => TRUE,
+        ),
+        
+      ),
+      'primary key' => array('nid'),
+    ),
+  );
+}

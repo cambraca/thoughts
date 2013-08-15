@@ -1,0 +1,6 @@
+name = Word rank
+description = Store a cache of words with a numeric ranking associated to them, representing the number of times seen in thoughts.
+package = Thoughts
+version = 1.0
+core = 7.x
+dependencies[] = languageutil

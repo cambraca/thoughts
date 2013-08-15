@@ -1,0 +1,105 @@
+<?php
+
+/**
+ * Implements hook_node_insert().
+ */
+function wordrank_node_insert($node) {
+  wordrank_node_update($node);
+}
+
+/**
+ * Implements hook_node_presave().
+ */
+function wordrank_node_presave($node) {
+  if ($node->type != 'thought' || !$node->nid || !isset($node->original))
+    return;
+
+  //are we tracking this node already?
+  if (db_select('wordrank_nodes', 'wn')->fields('wn')->condition('wn.nid', $node->nid)->execute()->fetchField()) {
+    //substract word counts from stored values in the database
+    $content = trim(strip_tags($node->original->body[$node->language][0]['value']));
+    $counts = _wordrank_calculate_word_counts($content);
+    foreach ($counts as $word => $count) {
+      db_update('wordrank')
+        ->expression('rank', 'rank - :rank', array(':rank' => $count))
+        ->condition('word', $word)
+        ->execute();
+    }
+  }
+}
+
+/**
+ * Implements hook_node_update().
+ */
+function wordrank_node_update($node) {
+  if ($node->type != 'thought')
+    return;
+
+  if (!db_select('wordrank_nodes', 'wn')->fields('wn')->condition('wn.nid', $node->nid)->execute()->fetchField())
+    db_insert('wordrank_nodes')->fields(array('nid' => $node->nid))->execute();
+
+  $content = trim(strip_tags($node->body[$node->language][0]['value']));
+  $counts = _wordrank_calculate_word_counts($content);
+  foreach ($counts as $word => $count) {
+    db_merge('wordrank')
+      ->key(array('word' => $word))
+      ->fields(array(
+          'rank' => $count,
+      ))
+      ->expression('rank', 'rank + :rank', array(':rank' => $count))
+      ->execute();
+  }
+}
+
+/**
+ * Implements hook_node_delete().
+ */
+function wordrank_node_delete($node) {
+  if ($node->type != 'thought')
+    return;
+
+  //are we tracking this node already?
+  if (db_select('wordrank_nodes', 'wn')->fields('wn')->condition('wn.nid', $node->nid)->execute()->fetchField()) {
+    //substract word counts from stored values in the database
+    $content = trim(strip_tags($node->body[$node->language][0]['value']));
+    $counts = _wordrank_calculate_word_counts($content);
+    foreach ($counts as $word => $count) {
+      db_update('wordrank')
+        ->expression('rank', 'rank - :rank', array(':rank' => $count))
+        ->condition('word', $word)
+        ->execute();
+    }
+  }
+  
+  db_delete('wordrank_nodes')->condition('nid', $node->nid)->execute();
+}
+
+function _wordrank_calculate_word_counts($text) {
+  module_load_include('module', 'languageutil');
+  $words = languageutil_get_words_from_text($text);
+  $counts = array();
+  foreach ($words as $word) {
+    if (isset($counts[$word]))
+      $counts[$word]++;
+    else
+      $counts[$word] = 1;
+  }
+  return $counts;
+}
+
+/**
+ * Implements hook_cron().
+ */
+function wordrank_cron() {
+  $query = db_select('node', 'n');
+  $query->leftJoin('wordrank_nodes', 'wn', 'n.nid = wn.nid');
+  $query
+    ->fields('n', array('nid'))
+    ->condition('wn.nid', NULL)
+    ->condition('n.type', 'thought')
+    ->range(0, 20);
+
+  $to_update = $query->execute()->fetchCol();
+  foreach ($to_update as $nid)
+    wordrank_node_update(node_load($nid));
+}

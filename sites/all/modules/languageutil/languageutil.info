@@ -1,0 +1,5 @@
+name = Language utility functions
+description = Various functions related to language processing.
+package = Thoughts
+version = 1.0
+core = 7.x

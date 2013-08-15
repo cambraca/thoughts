@@ -1,0 +1,45 @@
+<?php
+
+/**
+ * Implements hook_node_presave().
+ */
+function thought_node_presave($node) {
+  //override title
+  $content = trim(strip_tags($node->body[$node->language][0]['value']));
+  $node->title = truncate_utf8($content, 80, TRUE, TRUE, 20);
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function thought_form_thought_node_form_alter(&$form, &$form_state) {
+  $form['title']['#default_value'] = '[auto]';
+}
+
+
+
+
+//this is a search algorithm that could work by doing one iteration at a time in a cron
+//
+//$data = array(6,8,4,2,6,3,4,6,1,3,2,8,5,9);
+//function show() {
+//  global $data;
+//  echo '-----------------------'.PHP_EOL;
+//  for ($i = 0; $i < count($data); $i++)
+//    echo str_repeat('*', $data[$i]).PHP_EOL;
+//}
+//
+//shuffle($data);
+//
+//show();
+//for ($i = 0; $i < 100; $i++) {
+//  for ($j = 1; $j < count($data); $j++) {
+//    if ($data[$j] < $data[$j-1]) {
+//      $temp = $data[$j];
+//      $data[$j] = $data[$j-1];
+//      $data[$j-1] = $temp;
+//    }
+//  }
+//  sleep(1);
+//  show();
+//}

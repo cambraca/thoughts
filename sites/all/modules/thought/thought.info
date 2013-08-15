@@ -1,0 +1,6 @@
+name = Thought
+description = Various functionality related to the Thought content type.
+package = Thoughts
+version = 1.0
+core = 7.x
+dependencies[] = languageutil
