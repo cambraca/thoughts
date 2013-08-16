@@ -450,7 +450,7 @@ function languageutil_get_words_from_text($text, $language) {
   $ret = array();
   foreach ($words as $word) {
     $word = strtolower($word);
-    if (in_array($language, $languageutil_stop_words) && in_array($word, $languageutil_stop_words[$language]))
+    if (array_key_exists($language, $languageutil_stop_words) && in_array($word, $languageutil_stop_words[$language]))
       continue;
     if (function_exists('stemword'))
       $word = stemword($word, $language, 'UTF_8');
