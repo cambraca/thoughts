@@ -17,13 +17,16 @@ function wordrank_node_presave($node) {
   //are we tracking this node already?
   if (db_select('wordrank_nodes', 'wn')->fields('wn')->condition('wn.nid', $node->nid)->execute()->fetchField()) {
     //substract word counts from stored values in the database
-    $content = trim(strip_tags($node->original->body[$node->language][0]['value']));
-    $counts = _wordrank_calculate_word_counts($content);
-    foreach ($counts as $word => $count) {
-      db_update('wordrank')
-        ->expression('rank', 'rank - :rank', array(':rank' => $count))
-        ->condition('word', $word)
-        ->execute();
+    foreach (array_keys($node->original->body) as $lang) {
+      $content = trim(strip_tags($node->original->body[$lang][0]['value']));
+      $counts = _wordrank_calculate_word_counts($content);
+      foreach ($counts as $word => $count) {
+        db_update('wordrank')
+          ->expression('rank', 'rank - :rank', array(':rank' => $count))
+          ->condition('language', $node->original->language)
+          ->condition('word', $word)
+          ->execute();
+      }
     }
   }
 }
@@ -38,16 +41,18 @@ function wordrank_node_update($node) {
   if (!db_select('wordrank_nodes', 'wn')->fields('wn')->condition('wn.nid', $node->nid)->execute()->fetchField())
     db_insert('wordrank_nodes')->fields(array('nid' => $node->nid))->execute();
 
-  $content = trim(strip_tags($node->body[$node->language][0]['value']));
-  $counts = _wordrank_calculate_word_counts($content);
-  foreach ($counts as $word => $count) {
-    db_merge('wordrank')
-      ->key(array('word' => $word))
-      ->fields(array(
-          'rank' => $count,
-      ))
-      ->expression('rank', 'rank + :rank', array(':rank' => $count))
-      ->execute();
+  foreach (array_keys($node->body) as $lang) {
+    $content = trim(strip_tags($node->body[$lang][0]['value']));
+    $counts = _wordrank_calculate_word_counts($content);
+    foreach ($counts as $word => $count) {
+      db_merge('wordrank')
+        ->key(array('language' => $node->language, 'word' => $word))
+        ->fields(array(
+            'rank' => $count,
+        ))
+        ->expression('rank', 'rank + :rank', array(':rank' => $count))
+        ->execute();
+    }
   }
 }
 
@@ -61,13 +66,16 @@ function wordrank_node_delete($node) {
   //are we tracking this node already?
   if (db_select('wordrank_nodes', 'wn')->fields('wn')->condition('wn.nid', $node->nid)->execute()->fetchField()) {
     //substract word counts from stored values in the database
-    $content = trim(strip_tags($node->body[$node->language][0]['value']));
-    $counts = _wordrank_calculate_word_counts($content);
-    foreach ($counts as $word => $count) {
-      db_update('wordrank')
-        ->expression('rank', 'rank - :rank', array(':rank' => $count))
-        ->condition('word', $word)
-        ->execute();
+    foreach (array_keys($node->body) as $lang) {
+      $content = trim(strip_tags($node->body[$lang][0]['value']));
+      $counts = _wordrank_calculate_word_counts($content);
+      foreach ($counts as $word => $count) {
+        db_update('wordrank')
+          ->expression('rank', 'rank - :rank', array(':rank' => $count))
+          ->condition('language', $node->language)
+          ->condition('word', $word)
+          ->execute();
+      }
     }
   }
   

@@ -5,7 +5,8 @@
  */
 function thought_node_presave($node) {
   //override title
-  $content = trim(strip_tags($node->body[$node->language][0]['value']));
+  $lang = key($node->body);
+  $content = trim(strip_tags($node->body[$lang][0]['value']));
   $node->title = truncate_utf8($content, 80, TRUE, TRUE, 20);
 }
 
@@ -13,7 +14,7 @@ function thought_node_presave($node) {
  * Implements hook_form_alter().
  */
 function thought_form_thought_node_form_alter(&$form, &$form_state) {
-  $form['title']['#default_value'] = '[auto]';
+  unset($form['title']);
 }
 
 

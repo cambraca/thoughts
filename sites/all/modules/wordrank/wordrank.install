@@ -8,6 +8,11 @@ function wordrank_schema() {
     'wordrank' => array(
       'description' => 'Stores individual words and a use count associated to them.',
       'fields' => array(
+        'language' => array(
+          'description' => 'Word language code.',
+          'type' => 'varchar',
+          'length' => 10,
+        ),
         'word' => array(
           'description' => 'Individual word in lowercase.',
           'type' => 'varchar',
@@ -20,11 +25,10 @@ function wordrank_schema() {
           'not null' => TRUE,
           'default' => 0,
         ),
-        
       ),
-      'primary key' => array('word'),
+      'primary key' => array('language', 'word'),
       'indexes' => array(
-        'rank' => array('rank'),
+        'rank' => array('language', 'rank'),
       ),
     ),
     'wordrank_nodes' => array(
