@@ -19,7 +19,7 @@ function wordrank_node_presave($node) {
     //substract word counts from stored values in the database
     foreach (array_keys($node->original->body) as $lang) {
       $content = trim(strip_tags($node->original->body[$lang][0]['value']));
-      $counts = _wordrank_calculate_word_counts($content);
+      $counts = _wordrank_calculate_word_counts($content, $node->original->language);
       foreach ($counts as $word => $count) {
         db_update('wordrank')
           ->expression('rank', 'rank - :rank', array(':rank' => $count))
@@ -43,7 +43,7 @@ function wordrank_node_update($node) {
 
   foreach (array_keys($node->body) as $lang) {
     $content = trim(strip_tags($node->body[$lang][0]['value']));
-    $counts = _wordrank_calculate_word_counts($content);
+    $counts = _wordrank_calculate_word_counts($content, $node->language);
     foreach ($counts as $word => $count) {
       db_merge('wordrank')
         ->key(array('language' => $node->language, 'word' => $word))
@@ -68,7 +68,7 @@ function wordrank_node_delete($node) {
     //substract word counts from stored values in the database
     foreach (array_keys($node->body) as $lang) {
       $content = trim(strip_tags($node->body[$lang][0]['value']));
-      $counts = _wordrank_calculate_word_counts($content);
+      $counts = _wordrank_calculate_word_counts($content, $node->language);
       foreach ($counts as $word => $count) {
         db_update('wordrank')
           ->expression('rank', 'rank - :rank', array(':rank' => $count))
@@ -82,9 +82,9 @@ function wordrank_node_delete($node) {
   db_delete('wordrank_nodes')->condition('nid', $node->nid)->execute();
 }
 
-function _wordrank_calculate_word_counts($text) {
+function _wordrank_calculate_word_counts($text, $language) {
   module_load_include('module', 'languageutil');
-  $words = languageutil_get_words_from_text($text);
+  $words = languageutil_get_words_from_text($text, $language);
   $counts = array();
   foreach ($words as $word) {
     if (isset($counts[$word]))
