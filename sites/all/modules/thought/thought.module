@@ -4,6 +4,9 @@
  * Implements hook_node_presave().
  */
 function thought_node_presave($node) {
+  if ($node->type != 'thought')
+    return;
+  
   //override title
   $lang = key($node->body);
   $content = trim(strip_tags($node->body[$lang][0]['value']));
