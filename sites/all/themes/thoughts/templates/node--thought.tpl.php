@@ -29,15 +29,23 @@
     </header>
   <?php endif;*/ ?>
 
-  <?php
-    // We hide the comments and links now so that we can render them later.
-    hide($content['comments']);
-    hide($content['links']);
-    print render($content);
-  ?>
+  <div class="content <?php if (rand(1,2) == 2) echo 'large'; ?>">
+    <?php
+      hide($content['comments']);
+      hide($content['links']);
+      
+      hide($content['field_category']);
+      
+      print render($content);
+    ?>
+  </div>
+  
+  <footer>
+    <time pubdate="<?= $node->created ?>"><?= format_interval(time() - $node->created, 1).t(' ago') ?></time>
+    <?php print render($content['field_category']); ?>
+  </footer>
 
-  <?php print render($content['links']); ?>
-
-  <?php print render($content['comments']); ?>
+  <?php /*print render($content['links']); ?>
+  <?php print render($content['comments']);*/ ?>
 
 </article>
