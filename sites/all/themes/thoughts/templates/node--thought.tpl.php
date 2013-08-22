@@ -29,7 +29,17 @@
     </header>
   <?php endif;*/ ?>
 
-  <div class="content <?php if (rand(1,2) == 2) echo 'large'; ?>">
+  <?php
+    $css_size_class = '';
+    $body = field_view_field('node', $node, 'body');
+    $body_length = strlen(strip_tags($body['#items'][0]['value']));
+    if ($body_length > 250)
+      $css_size_class = ' large';
+    elseif ($body_length < 100)
+      $css_size_class = ' small';
+  ?>
+  <div class="content<?= $css_size_class ?>">
+    <div class="wrapper">
     <?php
       hide($content['comments']);
       hide($content['links']);
@@ -38,6 +48,7 @@
       
       print render($content);
     ?>
+    </div>
   </div>
   
   <footer>

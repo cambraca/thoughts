@@ -1807,8 +1807,9 @@ article.node-thought > .content {
   border: 1px solid #525771;
   border-radius: 10px;
   padding: 7px 18px 20px 18px;
+  min-height: 100px;
 }
-/* line 27, ../sass/thoughts/node.scss */
+/* line 28, ../sass/thoughts/node.scss */
 article.node-thought > .content p {
   color: #525771;
   font-size: 24px;
@@ -1816,12 +1817,33 @@ article.node-thought > .content p {
   margin: 9px 0 0;
 }
 /* line 37, ../sass/thoughts/node.scss */
+article.node-thought > .content.large.expanded {
+  max-height: 280px;
+  overflow-y: auto;
+}
+/* line 42, ../sass/thoughts/node.scss */
+article.node-thought > .content.large {
+  max-height: 160px;
+  overflow-y: hidden;
+  transition: max-height .5s;
+}
+/* line 47, ../sass/thoughts/node.scss */
 article.node-thought > .content.large p {
   font-size: 20px;
   line-height: 26px;
   margin: 7px 0 0;
 }
-/* line 44, ../sass/thoughts/node.scss */
+/* line 54, ../sass/thoughts/node.scss */
+article.node-thought > .content.small {
+  display: table;
+  height: 100px;
+}
+/* line 58, ../sass/thoughts/node.scss */
+article.node-thought > .content.small > * {
+  display: table-cell;
+  vertical-align: middle;
+}
+/* line 64, ../sass/thoughts/node.scss */
 article.node-thought footer {
   background-image: url(../images/bubbles.png);
   background-repeat: no-repeat;
@@ -1830,18 +1852,18 @@ article.node-thought footer {
   padding: 0 5px;
   height: 35px;
 }
-/* line 52, ../sass/thoughts/node.scss */
+/* line 72, ../sass/thoughts/node.scss */
 article.node-thought footer > * {
   float: right;
   line-height: 12px;
 }
-/* line 57, ../sass/thoughts/node.scss */
+/* line 77, ../sass/thoughts/node.scss */
 article.node-thought footer time {
   color: #8b90ad;
   font-size: 14px;
   margin: 5px 0 0 12px;
 }
-/* line 63, ../sass/thoughts/node.scss */
+/* line 83, ../sass/thoughts/node.scss */
 article.node-thought footer .field-name-field-category {
   border: solid #525771;
   border-width: 0 1px 1px 1px;
@@ -1852,7 +1874,7 @@ article.node-thought footer .field-name-field-category {
   padding: 5px;
   font-weight: bold;
 }
-/* line 73, ../sass/thoughts/node.scss */
+/* line 93, ../sass/thoughts/node.scss */
 article.node-thought footer .field-name-field-category a {
   text-decoration: none;
   color: white;
