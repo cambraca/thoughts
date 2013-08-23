@@ -33,7 +33,7 @@
     $css_size_class = '';
     $body = field_view_field('node', $node, 'body');
     $body_length = strlen(strip_tags($body['#items'][0]['value']));
-    if ($body_length > 250)
+    if ($body_length > 200)
       $css_size_class = ' large';
     elseif ($body_length < 100)
       $css_size_class = ' small';
@@ -52,8 +52,11 @@
   </div>
   
   <footer>
-    <time pubdate="<?= $node->created ?>"><?= format_interval(time() - $node->created, 1).t(' ago') ?></time>
+    <?php if ($body_length > 200): ?>
+    <a class="more" href="#" title="See the whole thought">+</a>
+    <?php endif; ?>
     <?php print render($content['field_category']); ?>
+    <time pubdate="<?= $node->created ?>"><?= format_interval(time() - $node->created, 1).t(' ago') ?></time>
   </footer>
 
   <?php /*print render($content['links']); ?>

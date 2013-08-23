@@ -1806,78 +1806,113 @@ article.node-thought > .content {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.04, #95b4cf), color-stop(0.08, #c5d8e8), color-stop(0.6, #f3fbff));
   border: 1px solid #525771;
   border-radius: 10px;
-  padding: 7px 18px 20px 18px;
+  padding: 0px 18px 0px 18px;
   min-height: 100px;
-}
-/* line 28, ../sass/thoughts/node.scss */
-article.node-thought > .content p {
   color: #525771;
   font-size: 24px;
   line-height: 30px;
+}
+/* line 31, ../sass/thoughts/node.scss */
+article.node-thought > .content > .wrapper {
+  margin-top: 14px;
+  margin-bottom: 20px;
+}
+/* line 36, ../sass/thoughts/node.scss */
+article.node-thought > .content p, article.node-thought > .content li {
   margin: 9px 0 0;
 }
-/* line 37, ../sass/thoughts/node.scss */
+/* line 40, ../sass/thoughts/node.scss */
+article.node-thought > .content dl, article.node-thought > .content menu, article.node-thought > .content ol, article.node-thought > .content ul {
+  margin: 20px 0;
+}
+/* line 45, ../sass/thoughts/node.scss */
 article.node-thought > .content.large.expanded {
   max-height: 280px;
   overflow-y: auto;
 }
-/* line 42, ../sass/thoughts/node.scss */
+/* line 50, ../sass/thoughts/node.scss */
 article.node-thought > .content.large {
   max-height: 160px;
   overflow-y: hidden;
   transition: max-height .5s;
-}
-/* line 47, ../sass/thoughts/node.scss */
-article.node-thought > .content.large p {
   font-size: 20px;
   line-height: 26px;
+}
+/* line 57, ../sass/thoughts/node.scss */
+article.node-thought > .content.large p {
   margin: 7px 0 0;
 }
-/* line 54, ../sass/thoughts/node.scss */
+/* line 62, ../sass/thoughts/node.scss */
 article.node-thought > .content.small {
   display: table;
   height: 100px;
+  padding-top: 7px;
+  padding-bottom: 20px;
 }
-/* line 58, ../sass/thoughts/node.scss */
-article.node-thought > .content.small > * {
+/* line 68, ../sass/thoughts/node.scss */
+article.node-thought > .content.small > .wrapper {
   display: table-cell;
   vertical-align: middle;
+  margin: 0;
 }
-/* line 64, ../sass/thoughts/node.scss */
+/* line 75, ../sass/thoughts/node.scss */
 article.node-thought footer {
   background-image: url(../images/bubbles.png);
   background-repeat: no-repeat;
   background-size: 60px 30px;
   line-height: 0;
-  padding: 0 5px;
+  padding: 0 8px 0 63px;
   height: 35px;
+  text-align: right;
 }
-/* line 72, ../sass/thoughts/node.scss */
+/* line 84, ../sass/thoughts/node.scss */
 article.node-thought footer > * {
-  float: right;
+  display: inline-block;
+  vertical-align: top;
   line-height: 12px;
 }
-/* line 77, ../sass/thoughts/node.scss */
+/* line 90, ../sass/thoughts/node.scss */
+article.node-thought footer .more {
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: 0 10px;
+  border-color: #525771;
+  border-style: solid;
+  border-width: 1px 1px 0 0;
+  color: #525771;
+  display: block;
+  font-size: 15px;
+  font-weight: bold;
+  height: 15px;
+  line-height: 12px;
+  margin-left: -63px;
+  margin-top: -18px;
+  padding: 1px 3px 1px 5px;
+  position: absolute;
+  text-decoration: none;
+}
+/* line 109, ../sass/thoughts/node.scss */
 article.node-thought footer time {
   color: #8b90ad;
   font-size: 14px;
   margin: 5px 0 0 12px;
 }
-/* line 83, ../sass/thoughts/node.scss */
+/* line 115, ../sass/thoughts/node.scss */
 article.node-thought footer .field-name-field-category {
   border: solid #525771;
   border-width: 0 1px 1px 1px;
   border-radius: 0 0 10px 10px;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2) inset;
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2) inset;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2) inset;
   font-size: 10px;
-  display: inline-block;
   text-transform: uppercase;
   padding: 5px;
   font-weight: bold;
 }
-/* line 93, ../sass/thoughts/node.scss */
+/* line 127, ../sass/thoughts/node.scss */
 article.node-thought footer .field-name-field-category a {
   text-decoration: none;
-  color: white;
+  color: #ebebeb;
   letter-spacing: .5px;
 }
 
