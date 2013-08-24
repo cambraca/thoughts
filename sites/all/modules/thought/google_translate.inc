@@ -2,7 +2,7 @@
 
 function thought_google_translate_detect_language($text) {
   $url = 'https://www.googleapis.com/language/translate/v2/detect?key=AIzaSyBWWVCY23dk1gHB2fbf6qBtK0DfWShVf9M&q=';
-  $url .= urlencode(substr(strip_tags($text), 0, 200));
+  $url .= urlencode(substr(strip_tags($text), 0, 400));
   
   $ch = curl_init($url);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
