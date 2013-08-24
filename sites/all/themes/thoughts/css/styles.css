@@ -1897,17 +1897,21 @@ article.node-thought > .content.large p {
 /* line 113, ../sass/thoughts/node.scss */
 article.node-thought > .content.small {
   display: table;
-  height: 100px;
+  height: 127px;
   padding-top: 7px;
   padding-bottom: 20px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
 }
-/* line 119, ../sass/thoughts/node.scss */
+/* line 123, ../sass/thoughts/node.scss */
 article.node-thought > .content.small > .wrapper {
   display: table-cell;
   vertical-align: middle;
   margin: 0;
 }
-/* line 126, ../sass/thoughts/node.scss */
+/* line 130, ../sass/thoughts/node.scss */
 article.node-thought footer {
   background-image: url(../images/bubbles.png);
   background-repeat: no-repeat;
@@ -1917,13 +1921,13 @@ article.node-thought footer {
   height: 35px;
   text-align: right;
 }
-/* line 135, ../sass/thoughts/node.scss */
+/* line 139, ../sass/thoughts/node.scss */
 article.node-thought footer > * {
   display: inline-block;
   vertical-align: top;
   line-height: 12px;
 }
-/* line 141, ../sass/thoughts/node.scss */
+/* line 145, ../sass/thoughts/node.scss */
 article.node-thought footer .more {
   background-color: rgba(0, 0, 0, 0.15);
   border-radius: 0 10px;
@@ -1942,13 +1946,13 @@ article.node-thought footer .more {
   position: absolute;
   text-decoration: none;
 }
-/* line 160, ../sass/thoughts/node.scss */
+/* line 164, ../sass/thoughts/node.scss */
 article.node-thought footer time {
   color: #8b90ad;
   font-size: 14px;
   margin: 5px 0 0 12px;
 }
-/* line 166, ../sass/thoughts/node.scss */
+/* line 170, ../sass/thoughts/node.scss */
 article.node-thought footer .field-name-field-category {
   background-color: #b3b3b3;
   border: solid #525771;
@@ -1959,7 +1963,7 @@ article.node-thought footer .field-name-field-category {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2) inset;
   padding: 5px;
 }
-/* line 176, ../sass/thoughts/node.scss */
+/* line 180, ../sass/thoughts/node.scss */
 article.node-thought footer .field-name-field-category a, article.node-thought footer .field-name-field-category input {
   font-size: 10px;
   font-weight: bold;

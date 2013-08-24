@@ -112,9 +112,13 @@ article.node-thought {
 
   > .content.small {
     display: table;
-    height: 100px;
+    height: 127px;
     padding-top: 7px;
     padding-bottom: 20px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
 
     > .wrapper {
       display: table-cell;
