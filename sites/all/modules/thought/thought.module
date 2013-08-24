@@ -68,24 +68,12 @@ function thought_create() {
       )
     );
   }
+  
   $node = (object) $node;
   node_object_prepare($node);
-  
-//  $node->language = thought_google_translate_detect_language($content);
-//  $node->body[LANGUAGE_NONE][0]['value'] = check_markup($content, 'filtered_html', $node->language);
-//  
-//  if ($category) {
-////    $term = array(
-////      'vid' => 2,
-////      'name' => $category,
-////    );
-////    taxonomy_term_save($term);
-////    $node->field_category[LANGUAGE_NONE][0]['tid'] = $term->id;
-//    $node->field_category[LANGUAGE_NONE][0]['value'] = $category;
-//  }
   node_save($node);
   
-  drupal_goto('node/'.$node->nid);
+  drupal_goto('latest');
 }
 
 
