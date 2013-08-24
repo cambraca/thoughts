@@ -11,7 +11,7 @@ function wordrank_node_insert($node) {
  * Implements hook_node_presave().
  */
 function wordrank_node_presave($node) {
-  if ($node->type != 'thought' || !$node->nid || !isset($node->original))
+  if ($node->type != 'thought' || !isset($node->nid) || (isset($node->nid) && !$node->nid) || !isset($node->original))
     return;
 
   //are we tracking this node already?

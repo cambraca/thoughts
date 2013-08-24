@@ -1,5 +1,7 @@
 <?php
 
+include_once 'google_translate.inc';
+
 /**
  * Implements hook_node_presave().
  */
@@ -18,6 +20,72 @@ function thought_node_presave($node) {
  */
 function thought_form_thought_node_form_alter(&$form, &$form_state) {
   unset($form['title']);
+}
+
+/**
+ * Implements hook_menu().
+ */
+function thought_menu() {
+  return array(
+    'new-thought' => array(
+      'page callback' => 'thought_create',
+      'type' => MENU_CALLBACK,
+      'access callback' => TRUE,
+    ),
+  );
+}
+
+function thought_create() {
+  $content = trim($_POST['content']);
+  $category = strtolower(trim(strip_tags($_POST['category'])));
+  if (!$content)
+    drupal_goto();
+  
+  global $user;
+  
+  $node = array(
+    'type' => 'thought',
+    'language' => thought_google_translate_detect_language($content),
+    'uid' => $user->uid,
+    'body' => array(
+      LANGUAGE_NONE => array(
+        array(
+          'value' => $content,
+          'format' => 'filtered_html',
+        )
+      )
+    ),
+  );
+  if ($category) {
+    $vocabulary = taxonomy_vocabulary_machine_name_load('categories');
+    $tid = thought_taxonomy_term_check_term($category, $vocabulary->vid);
+    $node['field_category'] = array(
+      LANGUAGE_NONE => array(
+        array(
+          'vid' => $vocabulary->vid,
+          'tid' => $tid,
+        )
+      )
+    );
+  }
+  $node = (object) $node;
+  node_object_prepare($node);
+  
+//  $node->language = thought_google_translate_detect_language($content);
+//  $node->body[LANGUAGE_NONE][0]['value'] = check_markup($content, 'filtered_html', $node->language);
+//  
+//  if ($category) {
+////    $term = array(
+////      'vid' => 2,
+////      'name' => $category,
+////    );
+////    taxonomy_term_save($term);
+////    $node->field_category[LANGUAGE_NONE][0]['tid'] = $term->id;
+//    $node->field_category[LANGUAGE_NONE][0]['value'] = $category;
+//  }
+  node_save($node);
+  
+  drupal_goto('node/'.$node->nid);
 }
 
 
@@ -47,3 +115,40 @@ function thought_form_thought_node_form_alter(&$form, &$form_state) {
 //  sleep(1);
 //  show();
 //}
+
+/**
+ * Checks whether a term identified by name and vocabulary exists. Creates a
+ * new term if it does not exist.
+ *
+ * @param $name
+ *   A term name.
+ * @param $vid
+ *   A vocabulary id.
+ *
+ * @return
+ *   A term id.
+ */
+function thought_taxonomy_term_check_term($name, $vid) {
+  $name = trim($name);
+  $term = thought_taxonomy_term_lookup_term($name, $vid);
+  if (empty($term)) {
+    $term = new stdClass();
+    $term->name = $name;
+    $term->vid = $vid;
+    taxonomy_term_save($term);
+    return $term->tid;
+  }
+  return $term->tid;
+}
+
+/**
+ * Looks up a term, assumes SQL storage backend.
+ */
+function thought_taxonomy_term_lookup_term($name, $vid) {
+  return db_select('taxonomy_term_data', 'td')
+    ->fields('td', array('tid', 'name'))
+    ->condition('name', $name)
+    ->condition('vid', $vid)
+    ->execute()
+    ->fetchObject();
+}

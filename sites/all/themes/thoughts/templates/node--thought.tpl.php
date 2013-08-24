@@ -8,6 +8,11 @@
  */
 ?>
 <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+  <header>
+    <?php global $user; if ($uid != $user->uid): ?>
+    <div class="author"><?php print $name; ?></div>
+    <?php endif; ?>
+  </header>
   <?php /*if ($title_prefix || $title_suffix || $display_submitted || $unpublished || !$page && $title): ?>
     <header>
       <?php print render($title_prefix); ?>
@@ -56,7 +61,7 @@
     <a class="more" href="#" title="See the whole thought">+</a>
     <?php endif; ?>
     <?php print render($content['field_category']); ?>
-    <time pubdate="<?= $node->created ?>"><?= format_interval(time() - $node->created, 1).t(' ago') ?></time>
+    <time pubdate="<?= date('c', $node->created) ?>"><?= format_interval(time() - $node->created, 1).t(' ago') ?></time>
   </footer>
 
   <?php /*print render($content['links']); ?>

@@ -4,13 +4,64 @@ article.node-thought {
   margin-bottom: 40px;
   max-width: 600px;
 
+  &.new {
+    input[type=text], textarea {
+      border: 0;
+      padding: 0;
+      background-color: transparent;
+      min-width: 100%;
+    }
+    textarea {
+      min-height: 100px;
+      color: $text-color;
+    }
+  }
+
+  > header {
+    > .author {
+      background-color: $border-color;
+      border-radius: 10px 10px 0 0;
+      display: inline-block;
+      padding: 0 5px;
+      color: $bg-color;
+      a {
+        text-decoration: none;
+        color: $bg-color;
+      }
+    }
+
+    > nav.toolbar {
+      float: right;
+      margin-right: 8px;
+
+      input[type=button], input[type=submit] {
+        background-color: $category-bg-color;
+        border: 0;
+        border-radius: 6px;
+        color: $bg-color;
+        font-family: $tahoma;
+        font-size: 10px;
+        text-transform: uppercase;
+        padding: 1px 5px;
+
+        &:hover {
+          background-color: $text-color;
+        }
+      }
+
+      input[type=submit] {
+        background-color: $save-color;
+      }
+    }
+  }
+
   > .content {
+    background-color: $gradient-2;
     background-image: linear-gradient(bottom, $gradient-1 $gradient-pos-1, $gradient-2 $gradient-pos-2, $gradient-3 $gradient-pos-3);
     background-image: -o-linear-gradient(bottom, $gradient-1 $gradient-pos-1, $gradient-2 $gradient-pos-2, $gradient-3 $gradient-pos-3);
     background-image: -moz-linear-gradient(bottom, $gradient-1 $gradient-pos-1, $gradient-2 $gradient-pos-2, $gradient-3 $gradient-pos-3);
     background-image: -webkit-linear-gradient(bottom, $gradient-1 $gradient-pos-1, $gradient-2 $gradient-pos-2, $gradient-3 $gradient-pos-3);
     background-image: -ms-linear-gradient(bottom, $gradient-1 $gradient-pos-1, $gradient-2 $gradient-pos-2, $gradient-3 $gradient-pos-3);
-
     background-image: -webkit-gradient(
       linear,
       left bottom,
@@ -21,7 +72,7 @@ article.node-thought {
     );
 
     border: 1px solid $border-color;
-    border-radius: 10px;
+    border-radius: 0 10px 10px 10px;
     padding: 0px 18px 0px 18px;
     min-height: 100px;
     color: $text-color;
@@ -113,18 +164,19 @@ article.node-thought {
     }
 
     .field-name-field-category {
+      background-color: $category-bg-color;
       border: solid $border-color;
       border-width: 0 1px 1px 1px;
       border-radius: 0 0 10px 10px;
       -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, .2) inset;
       -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, .2) inset;
       box-shadow: 0 1px 4px rgba(0, 0, 0, .2) inset;
-      font-size: 10px;
-      text-transform: uppercase;
       padding: 5px;
-      font-weight: bold;
 
-      a {
+      a, input {
+        font-size: 10px;
+        font-weight: bold;
+        text-transform: uppercase;
         text-decoration: none;
         color: $bg-color;
         letter-spacing: .5px;

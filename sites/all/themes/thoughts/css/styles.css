@@ -1791,13 +1791,65 @@ tr.selected td {
 /* SMACSS theme rules */
 /* @import "theme-A"; */
 /* @import "theme-B"; */
+/* luminosity: 70% */
+/* luminosity: 70% */
 /* line 3, ../sass/thoughts/node.scss */
 article.node-thought {
   margin-bottom: 40px;
   max-width: 600px;
 }
-/* line 7, ../sass/thoughts/node.scss */
+/* line 8, ../sass/thoughts/node.scss */
+article.node-thought.new input[type=text], article.node-thought.new textarea {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  min-width: 100%;
+}
+/* line 14, ../sass/thoughts/node.scss */
+article.node-thought.new textarea {
+  min-height: 100px;
+  color: #525771;
+}
+/* line 21, ../sass/thoughts/node.scss */
+article.node-thought > header > .author {
+  background-color: #525771;
+  border-radius: 10px 10px 0 0;
+  display: inline-block;
+  padding: 0 5px;
+  color: #ebebeb;
+}
+/* line 27, ../sass/thoughts/node.scss */
+article.node-thought > header > .author a {
+  text-decoration: none;
+  color: #ebebeb;
+}
+/* line 33, ../sass/thoughts/node.scss */
+article.node-thought > header > nav.toolbar {
+  float: right;
+  margin-right: 8px;
+}
+/* line 37, ../sass/thoughts/node.scss */
+article.node-thought > header > nav.toolbar input[type=button], article.node-thought > header > nav.toolbar input[type=submit] {
+  background-color: #b3b3b3;
+  border: 0;
+  border-radius: 6px;
+  color: #ebebeb;
+  font-family: Tahoma, Verdana, "DejaVu Sans", sans-serif;
+  font-size: 10px;
+  text-transform: uppercase;
+  padding: 1px 5px;
+}
+/* line 47, ../sass/thoughts/node.scss */
+article.node-thought > header > nav.toolbar input[type=button]:hover, article.node-thought > header > nav.toolbar input[type=submit]:hover {
+  background-color: #525771;
+}
+/* line 52, ../sass/thoughts/node.scss */
+article.node-thought > header > nav.toolbar input[type=submit] {
+  background-color: green;
+}
+/* line 58, ../sass/thoughts/node.scss */
 article.node-thought > .content {
+  background-color: #c5d8e8;
   background-image: linear-gradient(bottom, #95b4cf 0%, #c5d8e8 7%, #f3fbff 60%);
   background-image: -o-linear-gradient(bottom, #95b4cf 0%, #c5d8e8 7%, #f3fbff 60%);
   background-image: -moz-linear-gradient(bottom, #95b4cf 0%, #c5d8e8 7%, #f3fbff 60%);
@@ -1805,32 +1857,32 @@ article.node-thought > .content {
   background-image: -ms-linear-gradient(bottom, #95b4cf 0%, #c5d8e8 7%, #f3fbff 60%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.04, #95b4cf), color-stop(0.08, #c5d8e8), color-stop(0.6, #f3fbff));
   border: 1px solid #525771;
-  border-radius: 10px;
+  border-radius: 0 10px 10px 10px;
   padding: 0px 18px 0px 18px;
   min-height: 100px;
   color: #525771;
   font-size: 24px;
   line-height: 30px;
 }
-/* line 31, ../sass/thoughts/node.scss */
+/* line 82, ../sass/thoughts/node.scss */
 article.node-thought > .content > .wrapper {
   margin-top: 14px;
   margin-bottom: 20px;
 }
-/* line 36, ../sass/thoughts/node.scss */
+/* line 87, ../sass/thoughts/node.scss */
 article.node-thought > .content p, article.node-thought > .content li {
   margin: 9px 0 0;
 }
-/* line 40, ../sass/thoughts/node.scss */
+/* line 91, ../sass/thoughts/node.scss */
 article.node-thought > .content dl, article.node-thought > .content menu, article.node-thought > .content ol, article.node-thought > .content ul {
   margin: 20px 0;
 }
-/* line 45, ../sass/thoughts/node.scss */
+/* line 96, ../sass/thoughts/node.scss */
 article.node-thought > .content.large.expanded {
   max-height: 280px;
   overflow-y: auto;
 }
-/* line 50, ../sass/thoughts/node.scss */
+/* line 101, ../sass/thoughts/node.scss */
 article.node-thought > .content.large {
   max-height: 160px;
   overflow-y: hidden;
@@ -1838,24 +1890,24 @@ article.node-thought > .content.large {
   font-size: 20px;
   line-height: 26px;
 }
-/* line 57, ../sass/thoughts/node.scss */
+/* line 108, ../sass/thoughts/node.scss */
 article.node-thought > .content.large p {
   margin: 7px 0 0;
 }
-/* line 62, ../sass/thoughts/node.scss */
+/* line 113, ../sass/thoughts/node.scss */
 article.node-thought > .content.small {
   display: table;
   height: 100px;
   padding-top: 7px;
   padding-bottom: 20px;
 }
-/* line 68, ../sass/thoughts/node.scss */
+/* line 119, ../sass/thoughts/node.scss */
 article.node-thought > .content.small > .wrapper {
   display: table-cell;
   vertical-align: middle;
   margin: 0;
 }
-/* line 75, ../sass/thoughts/node.scss */
+/* line 126, ../sass/thoughts/node.scss */
 article.node-thought footer {
   background-image: url(../images/bubbles.png);
   background-repeat: no-repeat;
@@ -1865,13 +1917,13 @@ article.node-thought footer {
   height: 35px;
   text-align: right;
 }
-/* line 84, ../sass/thoughts/node.scss */
+/* line 135, ../sass/thoughts/node.scss */
 article.node-thought footer > * {
   display: inline-block;
   vertical-align: top;
   line-height: 12px;
 }
-/* line 90, ../sass/thoughts/node.scss */
+/* line 141, ../sass/thoughts/node.scss */
 article.node-thought footer .more {
   background-color: rgba(0, 0, 0, 0.15);
   border-radius: 0 10px;
@@ -1890,27 +1942,28 @@ article.node-thought footer .more {
   position: absolute;
   text-decoration: none;
 }
-/* line 109, ../sass/thoughts/node.scss */
+/* line 160, ../sass/thoughts/node.scss */
 article.node-thought footer time {
   color: #8b90ad;
   font-size: 14px;
   margin: 5px 0 0 12px;
 }
-/* line 115, ../sass/thoughts/node.scss */
+/* line 166, ../sass/thoughts/node.scss */
 article.node-thought footer .field-name-field-category {
+  background-color: #b3b3b3;
   border: solid #525771;
   border-width: 0 1px 1px 1px;
   border-radius: 0 0 10px 10px;
   -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2) inset;
   -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2) inset;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2) inset;
-  font-size: 10px;
-  text-transform: uppercase;
   padding: 5px;
-  font-weight: bold;
 }
-/* line 127, ../sass/thoughts/node.scss */
-article.node-thought footer .field-name-field-category a {
+/* line 176, ../sass/thoughts/node.scss */
+article.node-thought footer .field-name-field-category a, article.node-thought footer .field-name-field-category input {
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
   text-decoration: none;
   color: #ebebeb;
   letter-spacing: .5px;
