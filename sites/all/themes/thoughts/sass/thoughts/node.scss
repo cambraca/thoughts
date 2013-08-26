@@ -14,6 +14,17 @@ article.node-thought {
     textarea {
       min-height: 100px;
       color: $text-color;
+
+      &::-webkit-input-placeholder {color: $placeholder-text-color;}
+      &:-moz-placeholder {color: $placeholder-text-color;}
+      &::-moz-placeholder {color: $placeholder-text-color;}
+      &:-ms-input-placeholder {color: $placeholder-text-color;}
+    }
+    .field-name-field-category input {
+      &::-webkit-input-placeholder {color: $placeholder-category-color;}
+      &:-moz-placeholder {color: $placeholder-category-color;}
+      &::-moz-placeholder {color: $placeholder-category-color;}
+      &:-ms-input-placeholder {color: $placeholder-category-color;}
     }
   }
 
@@ -34,13 +45,11 @@ article.node-thought {
       }
     }
 
-    > .parent {
-      
-      
+/*    > .parent {
       .hide-parents & {
         display: none;
       }
-    }
+    }*/
 
     > nav.toolbar {
       float: right;
