@@ -58,6 +58,13 @@ function thought_create() {
         )
       )
     ),
+    'field_public' => array(
+      LANGUAGE_NONE => array(
+        array(
+          'value' => isset($_POST['public']) && $_POST['public'] ? 1 : 0,
+        )
+      )
+    ),
   );
   if ($category) {
     $vocabulary = taxonomy_vocabulary_machine_name_load('categories');

@@ -34,19 +34,26 @@ article.node-thought {
       float: right;
       margin-right: 8px;
 
-      input[type=button], input[type=submit] {
+      input[type=button], input[type=submit], label {
+        display: inline;
         background-color: $category-bg-color;
         border: 0;
         border-radius: 6px;
         color: $bg-color;
         font-family: $tahoma;
         font-size: 10px;
+        font-weight: normal;
         text-transform: uppercase;
         padding: 1px 5px;
+        margin-left: 5px;
 
         &:hover {
           background-color: $text-color;
         }
+      }
+
+      label input[type=checkbox] {
+        vertical-align: text-bottom;
       }
 
       input[type=submit] {
@@ -73,6 +80,9 @@ article.node-thought {
 
     border: 1px solid $border-color;
     border-radius: 0 10px 10px 10px;
+    &.author-me {
+      border-radius: 10px;
+    }
     padding: 0px 18px 0px 18px;
     min-height: 100px;
     color: $text-color;

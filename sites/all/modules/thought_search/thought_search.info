@@ -1,0 +1,6 @@
+name = Thought Search
+description = Provides automatic thought connections and search.
+package = Thoughts
+version = 1.0
+core = 7.x
+dependencies[] = languageutil

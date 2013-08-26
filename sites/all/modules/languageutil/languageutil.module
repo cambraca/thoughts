@@ -3,8 +3,9 @@
 /**
  * Gets a list of words from the text.
  * Removes stopwords and short words, and returns only lower case.
- * Also, change for example "words" to "word" (stemming).
+ * Also, change the words to their root, for example "words" to "word" (stemming).
  * Words may be repeated in the return array.
+ * The array has the same order as the original text.
  * @param string $text
  * @param string $language
  * @return array

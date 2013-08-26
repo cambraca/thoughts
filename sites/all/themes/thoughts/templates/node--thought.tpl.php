@@ -43,7 +43,7 @@
     elseif ($body_length < 100)
       $css_size_class = ' small';
   ?>
-  <div class="content<?= $css_size_class ?>">
+  <div class="content<?= $css_size_class ?><?php if ($uid == $user->uid) echo ' author-me'; ?>">
     <div class="wrapper">
     <?php
       hide($content['comments']);
