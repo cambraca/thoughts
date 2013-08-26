@@ -74,7 +74,7 @@
 
 //$category = field_get_items('node', $node, 'field_category');
   if (!$items) {
-    echo 'yay'; $rgbhex = '';
+    $rgbhex = '';
   } else {
     srand($items[0]['#options']['entity']->tid);
     $s = .3; $l = .7; $h = rand(0, 99) / 100;

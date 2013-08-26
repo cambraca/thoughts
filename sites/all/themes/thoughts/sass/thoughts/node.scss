@@ -18,6 +18,10 @@ article.node-thought {
   }
 
   > header {
+    > * {
+      display: inline-block;
+    }
+
     > .author {
       background-color: $border-color;
       border-radius: 10px 10px 0 0;
@@ -30,11 +34,19 @@ article.node-thought {
       }
     }
 
+    > .parent {
+      
+      
+      .hide-parents & {
+        display: none;
+      }
+    }
+
     > nav.toolbar {
       float: right;
       margin-right: 8px;
 
-      input[type=button], input[type=submit], label {
+      input[type=button], input[type=submit], label, a {
         display: inline;
         background-color: $category-bg-color;
         border: 0;
@@ -42,10 +54,14 @@ article.node-thought {
         color: $bg-color;
         font-family: $tahoma;
         font-size: 10px;
+        line-height: 12px;
         font-weight: normal;
         text-transform: uppercase;
+        text-decoration: none;
         padding: 1px 5px;
-        margin-left: 5px;
+        margin: 0 0 0 5px;
+
+&.add-link, &.add-source {display: none;} /* TEMP!! */
 
         &:hover {
           background-color: $text-color;
@@ -88,6 +104,7 @@ article.node-thought {
     color: $text-color;
     font-size: 24px;
     line-height: 30px;
+    clear: both;
 
     > .wrapper {
       margin-top: 14px;

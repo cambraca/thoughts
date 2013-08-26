@@ -12,6 +12,10 @@
     <?php global $user; if ($uid != $user->uid): ?>
     <div class="author"><?php print $name; ?></div>
     <?php endif; ?>
+    <?php print render($content['field_parent']); ?>
+    <nav class="toolbar">
+      <?php if (!isset($_GET['elaborate']) || $node->nid != arg(1)) print l('Elaborate', 'node/'.$node->nid, array('query' => array('elaborate' => NULL))); ?>
+    </nav>
   </header>
   <?php /*if ($title_prefix || $title_suffix || $display_submitted || $unpublished || !$page && $title): ?>
     <header>

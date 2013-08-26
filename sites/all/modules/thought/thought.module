@@ -42,6 +42,8 @@ function thought_menu() {
 function thought_create() {
   $content = trim($_POST['content']);
   $category = strtolower(trim(strip_tags($_POST['category'])));
+  $public = isset($_POST['public']) && $_POST['public'] ? 1 : 0;
+  $parent = isset($_POST['parent']) ? intval($_POST['parent']) : NULL;
   if (!$content)
     drupal_goto();
   
@@ -61,11 +63,20 @@ function thought_create() {
     'field_public' => array(
       LANGUAGE_NONE => array(
         array(
-          'value' => isset($_POST['public']) && $_POST['public'] ? 1 : 0,
+          'value' => $public,
         )
       )
     ),
   );
+  if ($parent) {
+    $node['field_parent'] = array(
+      LANGUAGE_NONE => array(
+        array(
+          'target_id' => $parent,
+        )
+      )
+    );
+  }
   if ($category) {
     $vocabulary = taxonomy_vocabulary_machine_name_load('categories');
     $tid = thought_taxonomy_term_check_term($category, $vocabulary->vid);
