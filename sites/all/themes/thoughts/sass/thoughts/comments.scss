@@ -1,0 +1,57 @@
+article.comment {
+  max-width: 350px;
+  margin-bottom: 10px;
+
+  > header {
+    font-size: 10px;
+    line-height: 16px;
+    text-align: right;
+
+    > time {
+      color: #BBB;
+      margin-right: 5px;
+    }
+
+    > .author {
+      background-color: #999;
+      border-radius: 6px 6px 0 0;
+      display: inline-block;
+      padding: 0 3px;
+
+      &, a {
+/*        font-size: 10px;
+        line-height: 16px;*/
+        color: $bg-color;
+        text-decoration: none;
+      }
+    }
+  }
+
+  > .field-name-comment-body {
+    border: 1px solid #999;
+    border-radius: 6px 0 6px 0;
+    color: #999;
+    padding: 5px;
+    font-size: 14px;
+    line-height: 18px;
+    max-height: 130px;
+    overflow-y: auto;
+
+    p {
+      margin: 0 0 5px 0;
+    }
+  }
+
+  &:after {
+    content: "";
+    background-image: url(../images/comment.png);
+    background-repeat: no-repeat;
+    background-size: 26px 13px;
+    width: 26px;
+    height: 13px;
+    top: -1px;
+    position: relative;
+    visibility: visible;
+  }
+
+}
