@@ -1905,8 +1905,29 @@ article.node-thought > header > nav.toolbar label input[type=checkbox] {
 article.node-thought > header > nav.toolbar input[type=submit] {
   background-color: green;
 }
-/* line 90, ../sass/thoughts/node.scss */
+/* line 91, ../sass/thoughts/node.scss */
+article.node-thought.highlighted > .content {
+  cursor: inherit;
+}
+/* line 94, ../sass/thoughts/node.scss */
+article.node-thought.highlighted > .content > .wrapper {
+  margin-top: 34px;
+  margin-bottom: 40px;
+}
+/* line 101, ../sass/thoughts/node.scss */
+article.node-thought.highlighted > .content.small {
+  height: 150px;
+}
+/* line 105, ../sass/thoughts/node.scss */
+article.node-thought.highlighted footer {
+  background-image: url(../images/bubbles-highlighted.png);
+  background-size: 81px 37px;
+  height: 37px;
+  margin-left: -10px;
+}
+/* line 114, ../sass/thoughts/node.scss */
 article.node-thought > .content {
+  cursor: pointer;
   background-color: #c5d8e8;
   background-image: linear-gradient(bottom, #95b4cf 0%, #c5d8e8 7%, #f3fbff 60%);
   background-image: -o-linear-gradient(bottom, #95b4cf 0%, #c5d8e8 7%, #f3fbff 60%);
@@ -1920,32 +1941,32 @@ article.node-thought > .content {
   min-height: 100px;
   color: #525771;
   font-size: 24px;
-  line-height: 30px;
+  line-height: 32px;
   clear: both;
 }
-/* line 108, ../sass/thoughts/node.scss */
+/* line 134, ../sass/thoughts/node.scss */
 article.node-thought > .content.author-me {
   border-radius: 10px;
 }
-/* line 118, ../sass/thoughts/node.scss */
+/* line 144, ../sass/thoughts/node.scss */
 article.node-thought > .content > .wrapper {
   margin-top: 14px;
   margin-bottom: 20px;
 }
-/* line 123, ../sass/thoughts/node.scss */
+/* line 149, ../sass/thoughts/node.scss */
 article.node-thought > .content p, article.node-thought > .content li {
   margin: 9px 0 0;
 }
-/* line 127, ../sass/thoughts/node.scss */
+/* line 153, ../sass/thoughts/node.scss */
 article.node-thought > .content dl, article.node-thought > .content menu, article.node-thought > .content ol, article.node-thought > .content ul {
   margin: 20px 0;
 }
-/* line 132, ../sass/thoughts/node.scss */
+/* line 158, ../sass/thoughts/node.scss */
 article.node-thought > .content.large.expanded {
   max-height: 280px;
   overflow-y: auto;
 }
-/* line 137, ../sass/thoughts/node.scss */
+/* line 163, ../sass/thoughts/node.scss */
 article.node-thought > .content.large {
   max-height: 160px;
   overflow-y: hidden;
@@ -1953,11 +1974,11 @@ article.node-thought > .content.large {
   font-size: 20px;
   line-height: 26px;
 }
-/* line 144, ../sass/thoughts/node.scss */
+/* line 170, ../sass/thoughts/node.scss */
 article.node-thought > .content.large p {
   margin: 7px 0 0;
 }
-/* line 149, ../sass/thoughts/node.scss */
+/* line 175, ../sass/thoughts/node.scss */
 article.node-thought > .content.small {
   display: table;
   height: 127px;
@@ -1968,13 +1989,13 @@ article.node-thought > .content.small {
   box-sizing: border-box;
   width: 100%;
 }
-/* line 159, ../sass/thoughts/node.scss */
+/* line 185, ../sass/thoughts/node.scss */
 article.node-thought > .content.small > .wrapper {
   display: table-cell;
   vertical-align: middle;
   margin: 0;
 }
-/* line 166, ../sass/thoughts/node.scss */
+/* line 192, ../sass/thoughts/node.scss */
 article.node-thought footer {
   background-image: url(../images/bubbles.png);
   background-repeat: no-repeat;
@@ -1984,13 +2005,13 @@ article.node-thought footer {
   height: 35px;
   text-align: right;
 }
-/* line 175, ../sass/thoughts/node.scss */
+/* line 201, ../sass/thoughts/node.scss */
 article.node-thought footer > * {
   display: inline-block;
   vertical-align: top;
   line-height: 12px;
 }
-/* line 181, ../sass/thoughts/node.scss */
+/* line 207, ../sass/thoughts/node.scss */
 article.node-thought footer .more {
   background-color: rgba(0, 0, 0, 0.15);
   border-radius: 0 10px;
@@ -2009,13 +2030,35 @@ article.node-thought footer .more {
   position: absolute;
   text-decoration: none;
 }
-/* line 200, ../sass/thoughts/node.scss */
+/* line 226, ../sass/thoughts/node.scss */
+article.node-thought footer .comment_count {
+  background-image: url(../images/comment-count-left.png);
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: 28px 19px;
+  color: #999999;
+  font-size: 11px;
+  height: 19px;
+  margin: 4px 18px 0 4px;
+}
+/* line 236, ../sass/thoughts/node.scss */
+article.node-thought footer .comment_count span {
+  background-image: url(../images/comment-count-right.png);
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: 7px 19px;
+  display: block;
+  height: 17px;
+  padding: 2px 5px 0 5px;
+  margin-right: -7px;
+}
+/* line 248, ../sass/thoughts/node.scss */
 article.node-thought footer time {
   color: #8b90ad;
   font-size: 14px;
   margin: 5px 0 0 12px;
 }
-/* line 206, ../sass/thoughts/node.scss */
+/* line 254, ../sass/thoughts/node.scss */
 article.node-thought footer .field-name-field-category {
   background-color: #b3b3b3;
   border: solid #525771;
@@ -2026,7 +2069,7 @@ article.node-thought footer .field-name-field-category {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2) inset;
   padding: 5px;
 }
-/* line 216, ../sass/thoughts/node.scss */
+/* line 264, ../sass/thoughts/node.scss */
 article.node-thought footer .field-name-field-category a, article.node-thought footer .field-name-field-category input {
   font-size: 10px;
   font-weight: bold;
@@ -2049,12 +2092,12 @@ article.comment > header {
 }
 /* line 10, ../sass/thoughts/comments.scss */
 article.comment > header > time {
-  color: #BBB;
+  color: #bbbbbb;
   margin-right: 5px;
 }
 /* line 15, ../sass/thoughts/comments.scss */
 article.comment > header > .author {
-  background-color: #999;
+  background-color: #999999;
   border-radius: 6px 6px 0 0;
   display: inline-block;
   padding: 0 3px;
@@ -2068,9 +2111,9 @@ article.comment > header > .author, article.comment > header > .author a {
 }
 /* line 30, ../sass/thoughts/comments.scss */
 article.comment > .field-name-comment-body {
-  border: 1px solid #999;
+  border: 1px solid #999999;
   border-radius: 6px 0 6px 0;
-  color: #999;
+  color: #999999;
   padding: 5px;
   font-size: 14px;
   line-height: 18px;

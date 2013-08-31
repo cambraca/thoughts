@@ -6,6 +6,11 @@
  * Complete documentation for this file is available online.
  * @see https://drupal.org/node/1728164
  */
+
+$is_main_thought = arg(0) == 'node' && arg(1) == $node->nid;
+
+if ($is_main_thought)
+  $classes .= ' highlighted';
 ?>
 <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <header>
@@ -47,7 +52,8 @@
     elseif ($body_length < 100)
       $css_size_class = ' small';
   ?>
-  <div class="content<?= $css_size_class ?><?php if ($uid == $user->uid) echo ' author-me'; ?>">
+  <div class="content<?= $css_size_class ?><?php if ($uid == $user->uid) echo ' author-me'; ?><?php if ($is_main_thought) echo ' expanded'; ?>"
+    <?php if (!$is_main_thought) echo 'data-link="'.url('node/'.$node->nid).'"'?>>
     <div class="wrapper">
     <?php
       hide($content['comments']);
@@ -61,11 +67,19 @@
   </div>
   
   <footer>
-    <?php if ($body_length > 200): ?>
-    <a class="more" href="#" title="See the whole thought">+</a>
+
+    <?php if (!$is_main_thought && $body_length > 200): ?>
+      <a class="more" href="#" title="See the whole thought">+</a>
     <?php endif; ?>
+    
+    <?php if ($comment_count && !$is_main_thought): ?>
+      <div class="comment_count"><span><?= $comment_count ?></span></div>
+    <?php endif; ?>
+    
     <?php print render($content['field_category']); ?>
+    
     <time pubdate="<?= date('c', $node->created) ?>"><?= format_interval(time() - $node->created, 1).t(' ago') ?></time>
+
   </footer>
 
   <?php /*print render($content['links']); ?>

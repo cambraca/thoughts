@@ -87,7 +87,33 @@ article.node-thought {
     }
   }
 
+  &.highlighted {
+    > .content {
+      cursor: inherit;
+
+      > .wrapper {
+        margin-top: 34px;
+        margin-bottom: 40px;
+      }
+
+    }
+
+    > .content.small {
+      height: 150px;
+    }
+
+    footer {
+      background-image: url(../images/bubbles-highlighted.png);
+      background-size: 81px 37px;
+      height: 37px;
+      margin-left: -10px;
+    }
+
+  }
+
   > .content {
+    cursor: pointer;
+
     background-color: $gradient-2;
     background-image: linear-gradient(bottom, $gradient-1 $gradient-pos-1, $gradient-2 $gradient-pos-2, $gradient-3 $gradient-pos-3);
     background-image: -o-linear-gradient(bottom, $gradient-1 $gradient-pos-1, $gradient-2 $gradient-pos-2, $gradient-3 $gradient-pos-3);
@@ -112,7 +138,7 @@ article.node-thought {
     min-height: 100px;
     color: $text-color;
     font-size: 24px;
-    line-height: 30px;
+    line-height: 32px;
     clear: both;
 
     > .wrapper {
@@ -196,6 +222,28 @@ article.node-thought {
       position: absolute;
       text-decoration: none;
     }
+
+    .comment_count {
+      background-image: url(../images/comment-count-left.png);
+      background-position: left center;
+      background-repeat: no-repeat;
+      background-size: 28px 19px;
+      color: $comment-color;
+      font-size: 11px;
+      height: 19px;
+      margin: 4px 18px 0 4px;
+      
+      span {
+        background-image: url(../images/comment-count-right.png);
+        background-position: right center;
+        background-repeat: no-repeat;
+        background-size: 7px 19px;
+        display: block;
+        height: 17px;
+        padding: 2px 5px 0 5px;
+        margin-right: -7px;
+      }
+   }
 
     time {
       color: $dim-text-color;

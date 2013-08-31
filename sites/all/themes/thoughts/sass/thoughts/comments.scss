@@ -8,12 +8,12 @@ article.comment {
     text-align: right;
 
     > time {
-      color: #BBB;
+      color: $comment-time-color;
       margin-right: 5px;
     }
 
     > .author {
-      background-color: #999;
+      background-color: $comment-color;
       border-radius: 6px 6px 0 0;
       display: inline-block;
       padding: 0 3px;
@@ -28,9 +28,9 @@ article.comment {
   }
 
   > .field-name-comment-body {
-    border: 1px solid #999;
+    border: 1px solid $comment-color;
     border-radius: 6px 0 6px 0;
-    color: #999;
+    color: $comment-color;
     padding: 5px;
     font-size: 14px;
     line-height: 18px;
