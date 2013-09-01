@@ -111,7 +111,7 @@ audio:not([controls]) {
  */
 /* line 106, ../sass/_normalize.scss */
 html {
-  font-family: "Palatino Linotype", Georgia, "Times New Roman", "DejaVu Serif", serif;
+  font-family: "Quattrocento", serif;
   /* 1 */
   font-size: 100%;
   /* 3 */
@@ -177,51 +177,51 @@ blockquote {
 /* line 182, ../sass/_normalize.scss */
 h1 {
   /* Set the font-size and line-height while keeping a proper vertical rhythm. */
-  font-size: 2em;
-  line-height: 1.5em;
+  font-size: 3.5em;
+  line-height: 1.28571em;
   /* Set 1 unit of vertical rhythm on the top and bottom margins. */
-  margin-top: 0.75em;
-  margin-bottom: 0.75em;
+  margin-top: 0.42857em;
+  margin-bottom: 0.42857em;
 }
 
 /* line 190, ../sass/_normalize.scss */
 h2 {
+  font-size: 3em;
+  line-height: 1.5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+/* line 195, ../sass/_normalize.scss */
+h3 {
+  font-size: 2.5em;
+  line-height: 1.2em;
+  margin-top: 0.6em;
+  margin-bottom: 0.6em;
+}
+
+/* line 200, ../sass/_normalize.scss */
+h4 {
+  font-size: 2em;
+  line-height: 1.5em;
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+}
+
+/* line 205, ../sass/_normalize.scss */
+h5 {
   font-size: 1.5em;
   line-height: 2em;
   margin-top: 1em;
   margin-bottom: 1em;
 }
 
-/* line 195, ../sass/_normalize.scss */
-h3 {
-  font-size: 1.17em;
-  line-height: 1.28205em;
-  margin-top: 1.28205em;
-  margin-bottom: 1.28205em;
-}
-
-/* line 200, ../sass/_normalize.scss */
-h4 {
+/* line 210, ../sass/_normalize.scss */
+h6 {
   font-size: 1em;
   line-height: 1.5em;
   margin-top: 1.5em;
   margin-bottom: 1.5em;
-}
-
-/* line 205, ../sass/_normalize.scss */
-h5 {
-  font-size: 0.83em;
-  line-height: 1.80723em;
-  margin-top: 1.80723em;
-  margin-bottom: 1.80723em;
-}
-
-/* line 210, ../sass/_normalize.scss */
-h6 {
-  font-size: 0.67em;
-  line-height: 2.23881em;
-  margin-top: 2.23881em;
-  margin-bottom: 2.23881em;
 }
 
 /* Address styling not present in IE 8/9, Safari 5, and Chrome. */
@@ -950,8 +950,8 @@ table {
 /* line 98, ../sass/components/_misc.scss */
 .header__site-name {
   margin: 0;
-  font-size: 2em;
-  line-height: 1.5em;
+  font-size: 3.5em;
+  line-height: 1.28571em;
 }
 
 /* The link around the name of the website. */
@@ -1855,6 +1855,14 @@ article.node-thought > header > * {
   display: inline-block;
 }
 /* line 36, ../sass/thoughts/node.scss */
+article.node-thought > header a {
+  color: #b3b3b3;
+}
+/* line 38, ../sass/thoughts/node.scss */
+article.node-thought > header a:hover {
+  color: #525771;
+}
+/* line 41, ../sass/thoughts/node.scss */
 article.node-thought > header > .author {
   background-color: #525771;
   border-radius: 10px 10px 0 0;
@@ -1862,17 +1870,17 @@ article.node-thought > header > .author {
   padding: 0 5px;
   color: #ebebeb;
 }
-/* line 42, ../sass/thoughts/node.scss */
+/* line 47, ../sass/thoughts/node.scss */
 article.node-thought > header > .author a {
   text-decoration: none;
   color: #ebebeb;
 }
-/* line 54, ../sass/thoughts/node.scss */
+/* line 59, ../sass/thoughts/node.scss */
 article.node-thought > header > nav.toolbar {
   float: right;
   margin-right: 8px;
 }
-/* line 58, ../sass/thoughts/node.scss */
+/* line 63, ../sass/thoughts/node.scss */
 article.node-thought > header > nav.toolbar input[type=button], article.node-thought > header > nav.toolbar input[type=submit], article.node-thought > header > nav.toolbar label, article.node-thought > header > nav.toolbar a {
   display: inline;
   background-color: #b3b3b3;
@@ -1889,43 +1897,43 @@ article.node-thought > header > nav.toolbar input[type=button], article.node-tho
   margin: 0 0 0 5px;
   /* TEMP!! */
 }
-/* line 73, ../sass/thoughts/node.scss */
+/* line 78, ../sass/thoughts/node.scss */
 article.node-thought > header > nav.toolbar input[type=button].add-link, article.node-thought > header > nav.toolbar input[type=button].add-source, article.node-thought > header > nav.toolbar input[type=submit].add-link, article.node-thought > header > nav.toolbar input[type=submit].add-source, article.node-thought > header > nav.toolbar label.add-link, article.node-thought > header > nav.toolbar label.add-source, article.node-thought > header > nav.toolbar a.add-link, article.node-thought > header > nav.toolbar a.add-source {
   display: none;
 }
-/* line 75, ../sass/thoughts/node.scss */
+/* line 80, ../sass/thoughts/node.scss */
 article.node-thought > header > nav.toolbar input[type=button]:hover, article.node-thought > header > nav.toolbar input[type=submit]:hover, article.node-thought > header > nav.toolbar label:hover, article.node-thought > header > nav.toolbar a:hover {
   background-color: #525771;
 }
-/* line 80, ../sass/thoughts/node.scss */
+/* line 85, ../sass/thoughts/node.scss */
 article.node-thought > header > nav.toolbar label input[type=checkbox] {
   vertical-align: text-bottom;
 }
-/* line 84, ../sass/thoughts/node.scss */
+/* line 89, ../sass/thoughts/node.scss */
 article.node-thought > header > nav.toolbar input[type=submit] {
   background-color: green;
 }
-/* line 91, ../sass/thoughts/node.scss */
+/* line 96, ../sass/thoughts/node.scss */
 article.node-thought.highlighted > .content {
   cursor: inherit;
 }
-/* line 94, ../sass/thoughts/node.scss */
+/* line 99, ../sass/thoughts/node.scss */
 article.node-thought.highlighted > .content > .wrapper {
   margin-top: 24px;
   margin-bottom: 30px;
 }
-/* line 101, ../sass/thoughts/node.scss */
+/* line 106, ../sass/thoughts/node.scss */
 article.node-thought.highlighted > .content.small {
   height: 150px;
 }
-/* line 105, ../sass/thoughts/node.scss */
+/* line 110, ../sass/thoughts/node.scss */
 article.node-thought.highlighted footer {
   background-image: url(../images/bubbles-highlighted.png);
   background-size: 81px 37px;
   height: 37px;
   margin-left: -10px;
 }
-/* line 114, ../sass/thoughts/node.scss */
+/* line 119, ../sass/thoughts/node.scss */
 article.node-thought > .content {
   cursor: pointer;
   background-color: #c5d8e8;
@@ -1944,29 +1952,29 @@ article.node-thought > .content {
   line-height: 32px;
   clear: both;
 }
-/* line 134, ../sass/thoughts/node.scss */
+/* line 139, ../sass/thoughts/node.scss */
 article.node-thought > .content.author-me {
   border-radius: 10px;
 }
-/* line 144, ../sass/thoughts/node.scss */
+/* line 149, ../sass/thoughts/node.scss */
 article.node-thought > .content > .wrapper {
   margin-top: 14px;
   margin-bottom: 20px;
 }
-/* line 149, ../sass/thoughts/node.scss */
+/* line 154, ../sass/thoughts/node.scss */
 article.node-thought > .content p, article.node-thought > .content li {
   margin: 9px 0 0;
 }
-/* line 153, ../sass/thoughts/node.scss */
+/* line 158, ../sass/thoughts/node.scss */
 article.node-thought > .content dl, article.node-thought > .content menu, article.node-thought > .content ol, article.node-thought > .content ul {
   margin: 20px 0;
 }
-/* line 158, ../sass/thoughts/node.scss */
+/* line 163, ../sass/thoughts/node.scss */
 article.node-thought > .content.large.expanded {
   max-height: 280px;
   overflow-y: auto;
 }
-/* line 163, ../sass/thoughts/node.scss */
+/* line 168, ../sass/thoughts/node.scss */
 article.node-thought > .content.large {
   max-height: 160px;
   overflow-y: hidden;
@@ -1974,11 +1982,11 @@ article.node-thought > .content.large {
   font-size: 20px;
   line-height: 26px;
 }
-/* line 170, ../sass/thoughts/node.scss */
+/* line 175, ../sass/thoughts/node.scss */
 article.node-thought > .content.large p {
   margin: 7px 0 0;
 }
-/* line 175, ../sass/thoughts/node.scss */
+/* line 180, ../sass/thoughts/node.scss */
 article.node-thought > .content.small {
   display: table;
   height: 127px;
@@ -1989,13 +1997,13 @@ article.node-thought > .content.small {
   box-sizing: border-box;
   width: 100%;
 }
-/* line 185, ../sass/thoughts/node.scss */
+/* line 190, ../sass/thoughts/node.scss */
 article.node-thought > .content.small > .wrapper {
   display: table-cell;
   vertical-align: middle;
   margin: 0;
 }
-/* line 192, ../sass/thoughts/node.scss */
+/* line 197, ../sass/thoughts/node.scss */
 article.node-thought footer {
   background-image: url(../images/bubbles.png);
   background-repeat: no-repeat;
@@ -2005,13 +2013,13 @@ article.node-thought footer {
   height: 35px;
   text-align: right;
 }
-/* line 201, ../sass/thoughts/node.scss */
+/* line 206, ../sass/thoughts/node.scss */
 article.node-thought footer > * {
   display: inline-block;
   vertical-align: top;
   line-height: 12px;
 }
-/* line 207, ../sass/thoughts/node.scss */
+/* line 212, ../sass/thoughts/node.scss */
 article.node-thought footer .more {
   background-color: rgba(0, 0, 0, 0.15);
   border-radius: 0 10px;
@@ -2030,7 +2038,7 @@ article.node-thought footer .more {
   position: absolute;
   text-decoration: none;
 }
-/* line 226, ../sass/thoughts/node.scss */
+/* line 231, ../sass/thoughts/node.scss */
 article.node-thought footer .comment_count {
   background-image: url(../images/comment-count-left.png);
   background-position: left center;
@@ -2041,7 +2049,7 @@ article.node-thought footer .comment_count {
   height: 19px;
   margin: 4px 18px 0 4px;
 }
-/* line 236, ../sass/thoughts/node.scss */
+/* line 241, ../sass/thoughts/node.scss */
 article.node-thought footer .comment_count span {
   background-image: url(../images/comment-count-right.png);
   background-position: right center;
@@ -2052,13 +2060,13 @@ article.node-thought footer .comment_count span {
   padding: 2px 5px 0 5px;
   margin-right: -7px;
 }
-/* line 248, ../sass/thoughts/node.scss */
+/* line 253, ../sass/thoughts/node.scss */
 article.node-thought footer time {
   color: #8b90ad;
   font-size: 14px;
   margin: 5px 0 0 12px;
 }
-/* line 254, ../sass/thoughts/node.scss */
+/* line 259, ../sass/thoughts/node.scss */
 article.node-thought footer .field-name-field-category {
   background-color: #b3b3b3;
   border: solid #525771;
@@ -2069,7 +2077,7 @@ article.node-thought footer .field-name-field-category {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2) inset;
   padding: 5px;
 }
-/* line 264, ../sass/thoughts/node.scss */
+/* line 269, ../sass/thoughts/node.scss */
 article.node-thought footer .field-name-field-category a, article.node-thought footer .field-name-field-category input {
   font-size: 10px;
   font-weight: bold;
@@ -2144,7 +2152,7 @@ body {
 
 /* line 9, ../sass/thoughts/main.scss */
 h1, h2, h3, h4, h5, h6 {
-  font-family: Tahoma, Verdana, "DejaVu Sans", sans-serif;
+  font-family: "Tulpen One", cursive;
   font-weight: normal;
 }
 

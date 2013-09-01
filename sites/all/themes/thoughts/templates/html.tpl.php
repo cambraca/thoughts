@@ -40,6 +40,7 @@
     <![endif]-->
   <?php endif; ?>
   <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  <link href="http://fonts.googleapis.com/css?family=Tulpen+One|Quattrocento:400,700" rel="stylesheet" type="text/css" />
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
   <?php if ($skip_link_text && $skip_link_anchor): ?>

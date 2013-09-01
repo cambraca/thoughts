@@ -33,6 +33,11 @@ article.node-thought {
       display: inline-block;
     }
 
+    a {
+      color: $category-bg-color;
+      &:hover {color: $text-color;}
+    }
+
     > .author {
       background-color: $border-color;
       border-radius: 10px 10px 0 0;
