@@ -9,12 +9,17 @@
 
 $is_main_thought = arg(0) == 'node' && arg(1) == $node->nid;
 
+global $user;
+$show_author = $uid != $user->uid;
+if ($show_author && arg(0) == 'user' && arg(1) == $uid)
+  $show_author = FALSE;
+
 if ($is_main_thought)
   $classes .= ' highlighted';
 ?>
 <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <header>
-    <?php global $user; if ($uid != $user->uid): ?>
+    <?php if ($show_author): ?>
     <div class="author"><?php print $name; ?></div>
     <?php endif; ?>
     <?php print render($content['field_parent']); ?>
@@ -52,7 +57,7 @@ if ($is_main_thought)
     elseif ($body_length < 100)
       $css_size_class = ' small';
   ?>
-  <div class="content<?= $css_size_class ?><?php if ($uid == $user->uid) echo ' author-me'; ?><?php if ($is_main_thought) echo ' expanded'; ?>"
+  <div class="content<?= $css_size_class ?><?php if (!$show_author) echo ' author-hidden'; ?><?php if ($is_main_thought) echo ' expanded'; ?>"
     <?php if (!$is_main_thought) echo 'data-link="'.url('node/'.$node->nid).'"'?>>
     <div class="wrapper">
     <?php

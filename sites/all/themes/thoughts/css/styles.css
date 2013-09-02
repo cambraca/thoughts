@@ -1953,7 +1953,7 @@ article.node-thought > .content {
   clear: both;
 }
 /* line 139, ../sass/thoughts/node.scss */
-article.node-thought > .content.author-me {
+article.node-thought > .content.author-hidden {
   border-radius: 10px;
 }
 /* line 149, ../sass/thoughts/node.scss */
