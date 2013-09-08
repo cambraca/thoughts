@@ -54,7 +54,7 @@ function thought_search_schema() {
           'type' => 'int',
           'unsigned' => TRUE,
           'not null' => TRUE,
-          'default' => 0,
+          'default' => 1,
         ),
         'weight' => array(
           'description' => 'A measure of the average distance between the two words. 1 means the two words always come right next to each other.',
@@ -63,7 +63,7 @@ function thought_search_schema() {
           'not null' => TRUE,
           'default' => 1,
         ),
-        'order' => array(
+        'sort' => array(
           'description' => 'Count times weight.',
           'type' => 'float',
           'size' => 'big',
@@ -73,7 +73,7 @@ function thought_search_schema() {
       ),
       'primary key' => array('language', 'word1', 'word2'),
       'indexes' => array(
-        'search' => array('language', 'order', 'word1', 'word2'),
+        'search' => array('language', 'sort', 'word1', 'word2'),
       ),
     ),
     'thought_processed_nodes' => array(
