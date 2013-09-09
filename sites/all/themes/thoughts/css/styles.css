@@ -1793,76 +1793,88 @@ tr.selected td {
 /* @import "theme-B"; */
 /* luminosity: 70% */
 /* luminosity: 70% */
-/* line 3, ../sass/thoughts/node.scss */
+/* line 4, ../sass/thoughts/node.scss */
 article.node-thought {
   margin-bottom: 40px;
   max-width: 600px;
 }
-/* line 8, ../sass/thoughts/node.scss */
+/* line 9, ../sass/thoughts/node.scss */
 article.node-thought.new input[type=text], article.node-thought.new textarea {
   border: 0;
   padding: 0;
   background-color: transparent;
   min-width: 100%;
 }
-/* line 14, ../sass/thoughts/node.scss */
+/* line 15, ../sass/thoughts/node.scss */
 article.node-thought.new textarea {
   min-height: 100px;
   color: #525771;
 }
-/* line 18, ../sass/thoughts/node.scss */
+/* line 19, ../sass/thoughts/node.scss */
 article.node-thought.new textarea::-webkit-input-placeholder {
   color: #aaaacc;
 }
-/* line 19, ../sass/thoughts/node.scss */
+/* line 20, ../sass/thoughts/node.scss */
 article.node-thought.new textarea:-moz-placeholder {
   color: #aaaacc;
 }
-/* line 20, ../sass/thoughts/node.scss */
+/* line 21, ../sass/thoughts/node.scss */
 article.node-thought.new textarea::-moz-placeholder {
   color: #aaaacc;
 }
-/* line 21, ../sass/thoughts/node.scss */
+/* line 22, ../sass/thoughts/node.scss */
 article.node-thought.new textarea:-ms-input-placeholder {
   color: #aaaacc;
 }
-/* line 24, ../sass/thoughts/node.scss */
+/* line 25, ../sass/thoughts/node.scss */
 article.node-thought.new .field-name-field-category input::-webkit-input-placeholder {
   color: #cccccc;
 }
-/* line 25, ../sass/thoughts/node.scss */
+/* line 26, ../sass/thoughts/node.scss */
 article.node-thought.new .field-name-field-category input:-moz-placeholder {
   color: #cccccc;
 }
-/* line 26, ../sass/thoughts/node.scss */
+/* line 27, ../sass/thoughts/node.scss */
 article.node-thought.new .field-name-field-category input::-moz-placeholder {
   color: #cccccc;
 }
-/* line 27, ../sass/thoughts/node.scss */
+/* line 28, ../sass/thoughts/node.scss */
 article.node-thought.new .field-name-field-category input:-ms-input-placeholder {
   color: #cccccc;
 }
-/* line 31, ../sass/thoughts/node.scss */
-article.node-thought > header {
-  /*    > .parent {
-        .hide-parents & {
-          display: none;
-        }
-      }*/
+/* line 33, ../sass/thoughts/node.scss */
+article.node-thought:hover > header > nav.toolbar {
+  top: 0;
 }
-/* line 32, ../sass/thoughts/node.scss */
+/* line 34, ../sass/thoughts/node.scss */
+article.node-thought:hover > header > .parent {
+  top: 0;
+}
+/* line 35, ../sass/thoughts/node.scss */
+article.node-thought:hover footer .field-name-field-category {
+  margin-top: 0;
+}
+/* line 36, ../sass/thoughts/node.scss */
+article.node-thought:hover footer time {
+  margin-top: 5px;
+}
+/* line 37, ../sass/thoughts/node.scss */
+article.node-thought:hover footer .comment_count {
+  margin-top: 4px;
+}
+/* line 41, ../sass/thoughts/node.scss */
 article.node-thought > header > * {
   display: inline-block;
 }
-/* line 36, ../sass/thoughts/node.scss */
+/* line 45, ../sass/thoughts/node.scss */
 article.node-thought > header a {
   color: #b3b3b3;
 }
-/* line 38, ../sass/thoughts/node.scss */
+/* line 47, ../sass/thoughts/node.scss */
 article.node-thought > header a:hover {
   color: #525771;
 }
-/* line 41, ../sass/thoughts/node.scss */
+/* line 50, ../sass/thoughts/node.scss */
 article.node-thought > header > .author {
   background-color: #525771;
   border-radius: 10px 10px 0 0;
@@ -1870,17 +1882,35 @@ article.node-thought > header > .author {
   padding: 0 5px;
   color: #ebebeb;
 }
-/* line 47, ../sass/thoughts/node.scss */
+/* line 56, ../sass/thoughts/node.scss */
 article.node-thought > header > .author a {
   text-decoration: none;
   color: #ebebeb;
 }
-/* line 59, ../sass/thoughts/node.scss */
+/* line 62, ../sass/thoughts/node.scss */
+article.node-thought > header > .parent {
+  position: relative;
+  top: 25px;
+  transition: 0.3s ease top;
+}
+/* line 67, ../sass/thoughts/node.scss */
+.touch article.node-thought > header > .parent {
+  top: 0;
+}
+/* line 70, ../sass/thoughts/node.scss */
 article.node-thought > header > nav.toolbar {
   float: right;
   margin-right: 8px;
+  position: relative;
+  top: 25px;
+  z-index: 1;
+  transition: 0.3s ease top;
 }
-/* line 63, ../sass/thoughts/node.scss */
+/* line 78, ../sass/thoughts/node.scss */
+.touch article.node-thought > header > nav.toolbar {
+  top: 0;
+}
+/* line 80, ../sass/thoughts/node.scss */
 article.node-thought > header > nav.toolbar input[type=button], article.node-thought > header > nav.toolbar input[type=submit], article.node-thought > header > nav.toolbar label, article.node-thought > header > nav.toolbar a {
   display: inline;
   background-color: #b3b3b3;
@@ -1897,44 +1927,46 @@ article.node-thought > header > nav.toolbar input[type=button], article.node-tho
   margin: 0 0 0 5px;
   /* TEMP!! */
 }
-/* line 78, ../sass/thoughts/node.scss */
+/* line 95, ../sass/thoughts/node.scss */
 article.node-thought > header > nav.toolbar input[type=button].add-link, article.node-thought > header > nav.toolbar input[type=button].add-source, article.node-thought > header > nav.toolbar input[type=submit].add-link, article.node-thought > header > nav.toolbar input[type=submit].add-source, article.node-thought > header > nav.toolbar label.add-link, article.node-thought > header > nav.toolbar label.add-source, article.node-thought > header > nav.toolbar a.add-link, article.node-thought > header > nav.toolbar a.add-source {
   display: none;
 }
-/* line 80, ../sass/thoughts/node.scss */
+/* line 97, ../sass/thoughts/node.scss */
 article.node-thought > header > nav.toolbar input[type=button]:hover, article.node-thought > header > nav.toolbar input[type=submit]:hover, article.node-thought > header > nav.toolbar label:hover, article.node-thought > header > nav.toolbar a:hover {
   background-color: #525771;
 }
-/* line 85, ../sass/thoughts/node.scss */
+/* line 102, ../sass/thoughts/node.scss */
 article.node-thought > header > nav.toolbar label input[type=checkbox] {
   vertical-align: text-bottom;
 }
-/* line 89, ../sass/thoughts/node.scss */
+/* line 106, ../sass/thoughts/node.scss */
 article.node-thought > header > nav.toolbar input[type=submit] {
   background-color: green;
 }
-/* line 96, ../sass/thoughts/node.scss */
+/* line 113, ../sass/thoughts/node.scss */
 article.node-thought.highlighted > .content {
   cursor: inherit;
 }
-/* line 99, ../sass/thoughts/node.scss */
+/* line 116, ../sass/thoughts/node.scss */
 article.node-thought.highlighted > .content > .wrapper {
   margin-top: 24px;
   margin-bottom: 30px;
 }
-/* line 106, ../sass/thoughts/node.scss */
+/* line 123, ../sass/thoughts/node.scss */
 article.node-thought.highlighted > .content.small {
   height: 150px;
 }
-/* line 110, ../sass/thoughts/node.scss */
+/* line 127, ../sass/thoughts/node.scss */
 article.node-thought.highlighted footer {
   background-image: url(../images/bubbles-highlighted.png);
   background-size: 81px 37px;
   height: 37px;
   margin-left: -10px;
 }
-/* line 119, ../sass/thoughts/node.scss */
+/* line 136, ../sass/thoughts/node.scss */
 article.node-thought > .content {
+  position: relative;
+  z-index: 2;
   cursor: pointer;
   background-color: #c5d8e8;
   background-image: linear-gradient(bottom, #95b4cf 0%, #c5d8e8 7%, #f3fbff 60%);
@@ -1952,29 +1984,29 @@ article.node-thought > .content {
   line-height: 32px;
   clear: both;
 }
-/* line 139, ../sass/thoughts/node.scss */
+/* line 158, ../sass/thoughts/node.scss */
 article.node-thought > .content.author-hidden {
   border-radius: 10px;
 }
-/* line 149, ../sass/thoughts/node.scss */
+/* line 168, ../sass/thoughts/node.scss */
 article.node-thought > .content > .wrapper {
   margin-top: 14px;
   margin-bottom: 20px;
 }
-/* line 154, ../sass/thoughts/node.scss */
+/* line 173, ../sass/thoughts/node.scss */
 article.node-thought > .content p, article.node-thought > .content li {
   margin: 9px 0 0;
 }
-/* line 158, ../sass/thoughts/node.scss */
+/* line 177, ../sass/thoughts/node.scss */
 article.node-thought > .content dl, article.node-thought > .content menu, article.node-thought > .content ol, article.node-thought > .content ul {
   margin: 20px 0;
 }
-/* line 163, ../sass/thoughts/node.scss */
+/* line 182, ../sass/thoughts/node.scss */
 article.node-thought > .content.large.expanded {
   max-height: 280px;
   overflow-y: auto;
 }
-/* line 168, ../sass/thoughts/node.scss */
+/* line 187, ../sass/thoughts/node.scss */
 article.node-thought > .content.large {
   max-height: 160px;
   overflow-y: hidden;
@@ -1982,11 +2014,11 @@ article.node-thought > .content.large {
   font-size: 19px;
   line-height: 26px;
 }
-/* line 175, ../sass/thoughts/node.scss */
+/* line 194, ../sass/thoughts/node.scss */
 article.node-thought > .content.large p {
   margin: 7px 0 0;
 }
-/* line 180, ../sass/thoughts/node.scss */
+/* line 199, ../sass/thoughts/node.scss */
 article.node-thought > .content.small {
   display: table;
   height: 127px;
@@ -1997,13 +2029,13 @@ article.node-thought > .content.small {
   box-sizing: border-box;
   width: 100%;
 }
-/* line 190, ../sass/thoughts/node.scss */
+/* line 209, ../sass/thoughts/node.scss */
 article.node-thought > .content.small > .wrapper {
   display: table-cell;
   vertical-align: middle;
   margin: 0;
 }
-/* line 197, ../sass/thoughts/node.scss */
+/* line 216, ../sass/thoughts/node.scss */
 article.node-thought footer {
   background-image: url(../images/bubbles.png);
   background-repeat: no-repeat;
@@ -2013,13 +2045,13 @@ article.node-thought footer {
   height: 35px;
   text-align: right;
 }
-/* line 206, ../sass/thoughts/node.scss */
+/* line 225, ../sass/thoughts/node.scss */
 article.node-thought footer > * {
   display: inline-block;
   vertical-align: top;
   line-height: 12px;
 }
-/* line 212, ../sass/thoughts/node.scss */
+/* line 231, ../sass/thoughts/node.scss */
 article.node-thought footer .more {
   background-color: rgba(0, 0, 0, 0.15);
   border-radius: 0 10px;
@@ -2038,7 +2070,7 @@ article.node-thought footer .more {
   position: absolute;
   text-decoration: none;
 }
-/* line 231, ../sass/thoughts/node.scss */
+/* line 250, ../sass/thoughts/node.scss */
 article.node-thought footer .comment_count {
   background-image: url(../images/comment-count-left.png);
   background-position: left center;
@@ -2048,8 +2080,14 @@ article.node-thought footer .comment_count {
   font-size: 11px;
   height: 19px;
   margin: 4px 18px 0 4px;
+  transition: 0.3s ease margin-top;
+  margin-top: -19px;
 }
-/* line 241, ../sass/thoughts/node.scss */
+/* line 262, ../sass/thoughts/node.scss */
+.touch article.node-thought footer .comment_count {
+  margin-top: 4px;
+}
+/* line 264, ../sass/thoughts/node.scss */
 article.node-thought footer .comment_count span {
   background-image: url(../images/comment-count-right.png);
   background-position: right center;
@@ -2060,13 +2098,19 @@ article.node-thought footer .comment_count span {
   padding: 2px 5px 0 5px;
   margin-right: -7px;
 }
-/* line 253, ../sass/thoughts/node.scss */
+/* line 276, ../sass/thoughts/node.scss */
 article.node-thought footer time {
   color: #8b90ad;
   font-size: 14px;
   margin: 5px 0 0 12px;
+  transition: 0.3s ease margin-top;
+  margin-top: -15px;
 }
-/* line 259, ../sass/thoughts/node.scss */
+/* line 283, ../sass/thoughts/node.scss */
+.touch article.node-thought footer time {
+  margin-top: 5px;
+}
+/* line 286, ../sass/thoughts/node.scss */
 article.node-thought footer .field-name-field-category {
   background-color: #b3b3b3;
   border: solid #525771;
@@ -2076,8 +2120,14 @@ article.node-thought footer .field-name-field-category {
   -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2) inset;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2) inset;
   padding: 5px;
+  transition: 0.3s ease margin-top;
+  margin-top: -20px;
 }
-/* line 269, ../sass/thoughts/node.scss */
+/* line 298, ../sass/thoughts/node.scss */
+.touch article.node-thought footer .field-name-field-category {
+  margin-top: 0;
+}
+/* line 300, ../sass/thoughts/node.scss */
 article.node-thought footer .field-name-field-category a, article.node-thought footer .field-name-field-category input {
   font-size: 10px;
   font-weight: bold;
