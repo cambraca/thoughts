@@ -29,7 +29,7 @@ article.node-thought {
     }
   }
 
-  .no-touch &:hover {
+  .pointerevents &:hover {
     > header > nav.toolbar {top: 0;}
     > header > .parent {top: 0;}
     footer .field-name-field-category {margin-top: 0;}
@@ -63,7 +63,7 @@ article.node-thought {
       position: relative;
       transition: $thought-hover-transition top;
 
-      .no-touch & {top: 25px;}
+      .pointerevents & {top: 25px;}
     }
 
     > nav.toolbar {
@@ -73,7 +73,7 @@ article.node-thought {
       z-index: 1;
       transition: $thought-hover-transition top;
 
-      .no-touch & {top: 25px;}
+      .pointerevents & {top: 25px;}
 
       input[type=button], input[type=submit], label, a {
         display: inline;
@@ -257,7 +257,7 @@ article.node-thought {
       
       transition: $thought-hover-transition margin-top;
       margin-top: 4px;
-      .no-touch & {margin-top: -19px;}
+      .pointerevents & {margin-top: -19px;}
 
       span {
         background-image: url(../images/comment-count-right.png);
@@ -278,7 +278,7 @@ article.node-thought {
 
       transition: $thought-hover-transition margin-top;
       margin-top: 5px;
-      .no-touch & {margin-top: -15px;}
+      .pointerevents & {margin-top: -15px;}
     }
 
     .field-name-field-category {
@@ -293,7 +293,7 @@ article.node-thought {
 
       transition: $thought-hover-transition margin-top;
       margin-top: 0;
-      .no-touch & {margin-top: -20px;}
+      .pointerevents & {margin-top: -20px;}
 
       a, input {
         font-size: 10px;
