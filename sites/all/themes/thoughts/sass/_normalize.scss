@@ -190,7 +190,8 @@ h1 {
 h2 {
   @include adjust-font-size-to( $h2-font-size );
   @include leader(1, $h2-font-size);
-  @include trailer(1, $h2-font-size);
+  /*@include trailer(1, $h2-font-size);*/
+  margin-bottom: 0;
 }
 h3 {
   @include adjust-font-size-to( $h3-font-size );
