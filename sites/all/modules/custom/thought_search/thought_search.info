@@ -3,5 +3,6 @@ description = Stores word counts and relations in order to improve search.
 package = Thoughts
 version = 1.0
 core = 7.x
+configure = admin/config/search/thoughts
 dependencies[] = thought
 dependencies[] = languageutil
