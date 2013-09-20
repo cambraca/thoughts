@@ -6,6 +6,8 @@ article.node-thought {
   max-width: 600px;
 
   &.new {
+    input, textarea {&:focus {outline: 0;}}
+
     input[type=text], textarea {
       border: 0;
       padding: 0;

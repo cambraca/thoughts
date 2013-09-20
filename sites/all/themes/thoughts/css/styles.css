@@ -1800,34 +1800,38 @@ article.node-thought {
   max-width: 600px;
 }
 /* line 9, ../sass/thoughts/node.scss */
+article.node-thought.new input:focus, article.node-thought.new textarea:focus {
+  outline: 0;
+}
+/* line 11, ../sass/thoughts/node.scss */
 article.node-thought.new input[type=text], article.node-thought.new textarea {
   border: 0;
   padding: 0;
   background-color: transparent;
   min-width: 100%;
 }
-/* line 15, ../sass/thoughts/node.scss */
+/* line 17, ../sass/thoughts/node.scss */
 article.node-thought.new textarea {
   min-height: 100px;
   color: #525771;
 }
-/* line 19, ../sass/thoughts/node.scss */
+/* line 21, ../sass/thoughts/node.scss */
 article.node-thought.new textarea::-webkit-input-placeholder {
   color: #aaaacc;
 }
-/* line 20, ../sass/thoughts/node.scss */
+/* line 22, ../sass/thoughts/node.scss */
 article.node-thought.new textarea:-moz-placeholder {
   color: #aaaacc;
 }
-/* line 21, ../sass/thoughts/node.scss */
+/* line 23, ../sass/thoughts/node.scss */
 article.node-thought.new textarea::-moz-placeholder {
   color: #aaaacc;
 }
-/* line 22, ../sass/thoughts/node.scss */
+/* line 24, ../sass/thoughts/node.scss */
 article.node-thought.new textarea:-ms-input-placeholder {
   color: #aaaacc;
 }
-/* line 24, ../sass/thoughts/node.scss */
+/* line 26, ../sass/thoughts/node.scss */
 article.node-thought.new input[name=source] {
   display: none;
   color: #525771;
@@ -1836,71 +1840,71 @@ article.node-thought.new input[name=source] {
   font-size: 18px;
   width: 100%;
 }
-/* line 32, ../sass/thoughts/node.scss */
+/* line 34, ../sass/thoughts/node.scss */
 article.node-thought.new input[name=source]::-webkit-input-placeholder {
   color: #aaaacc;
 }
-/* line 33, ../sass/thoughts/node.scss */
+/* line 35, ../sass/thoughts/node.scss */
 article.node-thought.new input[name=source]:-moz-placeholder {
   color: #aaaacc;
 }
-/* line 34, ../sass/thoughts/node.scss */
+/* line 36, ../sass/thoughts/node.scss */
 article.node-thought.new input[name=source]::-moz-placeholder {
   color: #aaaacc;
 }
-/* line 35, ../sass/thoughts/node.scss */
+/* line 37, ../sass/thoughts/node.scss */
 article.node-thought.new input[name=source]:-ms-input-placeholder {
   color: #aaaacc;
 }
-/* line 38, ../sass/thoughts/node.scss */
+/* line 40, ../sass/thoughts/node.scss */
 article.node-thought.new .field-name-field-category input::-webkit-input-placeholder {
   color: #cccccc;
 }
-/* line 39, ../sass/thoughts/node.scss */
+/* line 41, ../sass/thoughts/node.scss */
 article.node-thought.new .field-name-field-category input:-moz-placeholder {
   color: #cccccc;
 }
-/* line 40, ../sass/thoughts/node.scss */
+/* line 42, ../sass/thoughts/node.scss */
 article.node-thought.new .field-name-field-category input::-moz-placeholder {
   color: #cccccc;
 }
-/* line 41, ../sass/thoughts/node.scss */
+/* line 43, ../sass/thoughts/node.scss */
 article.node-thought.new .field-name-field-category input:-ms-input-placeholder {
   color: #cccccc;
 }
-/* line 46, ../sass/thoughts/node.scss */
+/* line 48, ../sass/thoughts/node.scss */
 .pointerevents article.node-thought:hover > header > nav.toolbar, .pointerevents article.node-thought.new > header > nav.toolbar, .pointerevents article.node-thought.highlighted > header > nav.toolbar {
   top: 0;
 }
-/* line 47, ../sass/thoughts/node.scss */
+/* line 49, ../sass/thoughts/node.scss */
 .pointerevents article.node-thought:hover > header > .parent, .pointerevents article.node-thought.new > header > .parent, .pointerevents article.node-thought.highlighted > header > .parent {
   top: 0;
 }
-/* line 48, ../sass/thoughts/node.scss */
+/* line 50, ../sass/thoughts/node.scss */
 .pointerevents article.node-thought:hover footer .field-name-field-category, .pointerevents article.node-thought.new footer .field-name-field-category, .pointerevents article.node-thought.highlighted footer .field-name-field-category {
   margin-top: 0;
 }
-/* line 49, ../sass/thoughts/node.scss */
+/* line 51, ../sass/thoughts/node.scss */
 .pointerevents article.node-thought:hover footer time, .pointerevents article.node-thought.new footer time, .pointerevents article.node-thought.highlighted footer time {
   margin-top: 5px;
 }
-/* line 50, ../sass/thoughts/node.scss */
+/* line 52, ../sass/thoughts/node.scss */
 .pointerevents article.node-thought:hover footer .comment_count, .pointerevents article.node-thought.new footer .comment_count, .pointerevents article.node-thought.highlighted footer .comment_count {
   margin-top: 4px;
 }
-/* line 54, ../sass/thoughts/node.scss */
+/* line 56, ../sass/thoughts/node.scss */
 article.node-thought > header > * {
   display: inline-block;
 }
-/* line 58, ../sass/thoughts/node.scss */
+/* line 60, ../sass/thoughts/node.scss */
 article.node-thought > header a {
   color: #b3b3b3;
 }
-/* line 60, ../sass/thoughts/node.scss */
+/* line 62, ../sass/thoughts/node.scss */
 article.node-thought > header a:hover {
   color: #525771;
 }
-/* line 63, ../sass/thoughts/node.scss */
+/* line 65, ../sass/thoughts/node.scss */
 article.node-thought > header > .author {
   background-color: #525771;
   border-radius: 10px 10px 0 0;
@@ -1908,21 +1912,21 @@ article.node-thought > header > .author {
   padding: 0 5px;
   color: #ebebeb;
 }
-/* line 69, ../sass/thoughts/node.scss */
+/* line 71, ../sass/thoughts/node.scss */
 article.node-thought > header > .author a {
   text-decoration: none;
   color: #ebebeb;
 }
-/* line 75, ../sass/thoughts/node.scss */
+/* line 77, ../sass/thoughts/node.scss */
 article.node-thought > header > .parent {
   position: relative;
   transition: 0.3s ease top;
 }
-/* line 79, ../sass/thoughts/node.scss */
+/* line 81, ../sass/thoughts/node.scss */
 .pointerevents article.node-thought > header > .parent {
   top: 25px;
 }
-/* line 82, ../sass/thoughts/node.scss */
+/* line 84, ../sass/thoughts/node.scss */
 article.node-thought > header > nav.toolbar {
   float: right;
   margin-right: 8px;
@@ -1930,11 +1934,11 @@ article.node-thought > header > nav.toolbar {
   z-index: 1;
   transition: 0.3s ease top;
 }
-/* line 89, ../sass/thoughts/node.scss */
+/* line 91, ../sass/thoughts/node.scss */
 .pointerevents article.node-thought > header > nav.toolbar {
   top: 25px;
 }
-/* line 91, ../sass/thoughts/node.scss */
+/* line 93, ../sass/thoughts/node.scss */
 article.node-thought > header > nav.toolbar input[type=button], article.node-thought > header > nav.toolbar input[type=submit], article.node-thought > header > nav.toolbar label, article.node-thought > header > nav.toolbar a {
   display: inline;
   background-color: #b3b3b3;
@@ -1950,39 +1954,39 @@ article.node-thought > header > nav.toolbar input[type=button], article.node-tho
   padding: 1px 5px;
   margin: 0 0 0 5px;
 }
-/* line 106, ../sass/thoughts/node.scss */
+/* line 108, ../sass/thoughts/node.scss */
 article.node-thought > header > nav.toolbar input[type=button]:hover, article.node-thought > header > nav.toolbar input[type=submit]:hover, article.node-thought > header > nav.toolbar label:hover, article.node-thought > header > nav.toolbar a:hover {
   background-color: #525771;
 }
-/* line 111, ../sass/thoughts/node.scss */
+/* line 113, ../sass/thoughts/node.scss */
 article.node-thought > header > nav.toolbar label input[type=checkbox] {
   vertical-align: text-bottom;
 }
-/* line 115, ../sass/thoughts/node.scss */
+/* line 117, ../sass/thoughts/node.scss */
 article.node-thought > header > nav.toolbar input[type=submit] {
   background-color: green;
 }
-/* line 122, ../sass/thoughts/node.scss */
+/* line 124, ../sass/thoughts/node.scss */
 article.node-thought.highlighted > .content {
   cursor: inherit;
 }
-/* line 125, ../sass/thoughts/node.scss */
+/* line 127, ../sass/thoughts/node.scss */
 article.node-thought.highlighted > .content > .wrapper {
   margin-top: 24px;
   margin-bottom: 30px;
 }
-/* line 132, ../sass/thoughts/node.scss */
+/* line 134, ../sass/thoughts/node.scss */
 article.node-thought.highlighted > .content.small {
   height: 150px;
 }
-/* line 136, ../sass/thoughts/node.scss */
+/* line 138, ../sass/thoughts/node.scss */
 article.node-thought.highlighted footer {
   background-image: url(../images/bubbles-highlighted.png);
   background-size: 81px 37px;
   height: 37px;
   margin-left: -10px;
 }
-/* line 145, ../sass/thoughts/node.scss */
+/* line 147, ../sass/thoughts/node.scss */
 article.node-thought > .content {
   position: relative;
   z-index: 2;
@@ -2003,24 +2007,24 @@ article.node-thought > .content {
   line-height: 32px;
   clear: both;
 }
-/* line 167, ../sass/thoughts/node.scss */
+/* line 169, ../sass/thoughts/node.scss */
 article.node-thought > .content.author-hidden {
   border-radius: 10px;
 }
-/* line 177, ../sass/thoughts/node.scss */
+/* line 179, ../sass/thoughts/node.scss */
 article.node-thought > .content > .wrapper {
   margin-top: 14px;
   margin-bottom: 20px;
 }
-/* line 182, ../sass/thoughts/node.scss */
+/* line 184, ../sass/thoughts/node.scss */
 article.node-thought > .content p, article.node-thought > .content li {
   margin: 9px 0 0;
 }
-/* line 186, ../sass/thoughts/node.scss */
+/* line 188, ../sass/thoughts/node.scss */
 article.node-thought > .content dl, article.node-thought > .content menu, article.node-thought > .content ol, article.node-thought > .content ul {
   margin: 20px 0;
 }
-/* line 190, ../sass/thoughts/node.scss */
+/* line 192, ../sass/thoughts/node.scss */
 article.node-thought > .content .field-name-field-source {
   font-size: 18px;
   line-height: 24px;
@@ -2029,21 +2033,21 @@ article.node-thought > .content .field-name-field-source {
   margin-top: 10px;
   margin-bottom: -5px;
 }
-/* line 198, ../sass/thoughts/node.scss */
+/* line 200, ../sass/thoughts/node.scss */
 article.node-thought > .content .field-name-field-source p:first-child {
   display: inline;
 }
-/* line 202, ../sass/thoughts/node.scss */
+/* line 204, ../sass/thoughts/node.scss */
 article.node-thought > .content .field-name-field-source .field-item:before {
   content: "\2014";
   margin-right: 5px;
 }
-/* line 209, ../sass/thoughts/node.scss */
+/* line 211, ../sass/thoughts/node.scss */
 article.node-thought > .content.large.expanded {
   max-height: 280px;
   overflow-y: auto;
 }
-/* line 214, ../sass/thoughts/node.scss */
+/* line 216, ../sass/thoughts/node.scss */
 article.node-thought > .content.large {
   max-height: 160px;
   overflow-y: hidden;
@@ -2051,16 +2055,16 @@ article.node-thought > .content.large {
   font-size: 19px;
   line-height: 26px;
 }
-/* line 221, ../sass/thoughts/node.scss */
+/* line 223, ../sass/thoughts/node.scss */
 article.node-thought > .content.large p {
   margin: 7px 0 0;
 }
-/* line 225, ../sass/thoughts/node.scss */
+/* line 227, ../sass/thoughts/node.scss */
 article.node-thought > .content.large .field-name-field-source {
   font-size: 16px;
   line-height: 20px;
 }
-/* line 231, ../sass/thoughts/node.scss */
+/* line 233, ../sass/thoughts/node.scss */
 article.node-thought > .content.small {
   display: table;
   height: 127px;
@@ -2071,13 +2075,13 @@ article.node-thought > .content.small {
   box-sizing: border-box;
   width: 100%;
 }
-/* line 241, ../sass/thoughts/node.scss */
+/* line 243, ../sass/thoughts/node.scss */
 article.node-thought > .content.small > .wrapper {
   display: table-cell;
   vertical-align: middle;
   margin: 0;
 }
-/* line 248, ../sass/thoughts/node.scss */
+/* line 250, ../sass/thoughts/node.scss */
 article.node-thought footer {
   background-image: url(../images/bubbles.png);
   background-repeat: no-repeat;
@@ -2087,13 +2091,13 @@ article.node-thought footer {
   height: 35px;
   text-align: right;
 }
-/* line 257, ../sass/thoughts/node.scss */
+/* line 259, ../sass/thoughts/node.scss */
 article.node-thought footer > * {
   display: inline-block;
   vertical-align: top;
   line-height: 12px;
 }
-/* line 263, ../sass/thoughts/node.scss */
+/* line 265, ../sass/thoughts/node.scss */
 article.node-thought footer .more {
   background-color: rgba(0, 0, 0, 0.15);
   border-radius: 0 10px;
@@ -2113,7 +2117,7 @@ article.node-thought footer .more {
   position: absolute;
   text-decoration: none;
 }
-/* line 283, ../sass/thoughts/node.scss */
+/* line 285, ../sass/thoughts/node.scss */
 article.node-thought footer .comment_count {
   background-image: url(../images/comment-count-left.png);
   background-position: left center;
@@ -2126,11 +2130,11 @@ article.node-thought footer .comment_count {
   transition: 0.3s ease margin-top;
   margin-top: 4px;
 }
-/* line 295, ../sass/thoughts/node.scss */
+/* line 297, ../sass/thoughts/node.scss */
 .pointerevents article.node-thought footer .comment_count {
   margin-top: -19px;
 }
-/* line 297, ../sass/thoughts/node.scss */
+/* line 299, ../sass/thoughts/node.scss */
 article.node-thought footer .comment_count span {
   background-image: url(../images/comment-count-right.png);
   background-position: right center;
@@ -2141,7 +2145,7 @@ article.node-thought footer .comment_count span {
   padding: 2px 5px 0 5px;
   margin-right: -7px;
 }
-/* line 309, ../sass/thoughts/node.scss */
+/* line 311, ../sass/thoughts/node.scss */
 article.node-thought footer time {
   color: #8b90ad;
   font-size: 14px;
@@ -2149,11 +2153,11 @@ article.node-thought footer time {
   transition: 0.3s ease margin-top;
   margin-top: 5px;
 }
-/* line 316, ../sass/thoughts/node.scss */
+/* line 318, ../sass/thoughts/node.scss */
 .pointerevents article.node-thought footer time {
   margin-top: -15px;
 }
-/* line 319, ../sass/thoughts/node.scss */
+/* line 321, ../sass/thoughts/node.scss */
 article.node-thought footer .field-name-field-category {
   background-color: #b3b3b3;
   border: solid #525771;
@@ -2166,11 +2170,11 @@ article.node-thought footer .field-name-field-category {
   transition: 0.3s ease margin-top;
   margin-top: 0;
 }
-/* line 331, ../sass/thoughts/node.scss */
+/* line 333, ../sass/thoughts/node.scss */
 .pointerevents article.node-thought footer .field-name-field-category {
   margin-top: -20px;
 }
-/* line 333, ../sass/thoughts/node.scss */
+/* line 335, ../sass/thoughts/node.scss */
 article.node-thought footer .field-name-field-category a, article.node-thought footer .field-name-field-category input {
   font-size: 10px;
   font-weight: bold;
