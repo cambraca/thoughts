@@ -44,6 +44,7 @@ function thought_create() {
   $category = strtolower(trim(strip_tags($_POST['category'])));
   $public = isset($_POST['public']) && $_POST['public'] ? 1 : 0;
   $parent = isset($_POST['parent']) ? intval($_POST['parent']) : NULL;
+  $source = trim($_POST['source']);
   if (!$content)
     drupal_goto();
   
@@ -67,7 +68,16 @@ function thought_create() {
         )
       )
     ),
+    'field_source' => array(
+      LANGUAGE_NONE => array(
+        array(
+          'value' => $source,
+          'format' => 'source',
+        )
+      )
+    ),
   );
+//  var_dump(check_markup($source, 'source')); exit;
   if ($parent) {
     $node['field_parent'] = array(
       LANGUAGE_NONE => array(

@@ -21,6 +21,19 @@ article.node-thought {
       &::-moz-placeholder {color: $placeholder-text-color;}
       &:-ms-input-placeholder {color: $placeholder-text-color;}
     }
+    input[name=source] {
+      display: none;
+      color: $text-color;
+      background-color: transparent;
+      border: 0;
+      font-size: 18px;
+      width: 100%;
+      
+      &::-webkit-input-placeholder {color: $placeholder-text-color;}
+      &:-moz-placeholder {color: $placeholder-text-color;}
+      &::-moz-placeholder {color: $placeholder-text-color;}
+      &:-ms-input-placeholder {color: $placeholder-text-color;}
+    }
     .field-name-field-category input {
       &::-webkit-input-placeholder {color: $placeholder-category-color;}
       &:-moz-placeholder {color: $placeholder-category-color;}
@@ -89,8 +102,6 @@ article.node-thought {
         text-decoration: none;
         padding: 1px 5px;
         margin: 0 0 0 5px;
-
-&.add-link, &.add-source {display: none;} /* TEMP!! */
 
         &:hover {
           background-color: $text-color;
@@ -175,6 +186,24 @@ article.node-thought {
     dl, menu, ol, ul {
       margin: 20px 0;
     }
+
+    .field-name-field-source {
+      font-size: 18px;
+      line-height: 24px;
+      opacity: .6;
+      text-align: right;
+      margin-top: 10px;
+      margin-bottom: -5px;
+
+      p:first-child {
+        display: inline;
+      }
+
+      .field-item:before {
+        content: "\2014";
+        margin-right: 5px;
+      }
+    }
   }
 
   > .content.large.expanded {
@@ -191,6 +220,11 @@ article.node-thought {
 
     p {
       margin: 7px 0 0;
+    }
+    
+    .field-name-field-source {
+      font-size: 16px;
+      line-height: 20px;
     }
   }
 
@@ -234,6 +268,7 @@ article.node-thought {
       border-width: 1px 1px 0 0;
       color: $text-color;
       display: block;
+      z-index: 2;
       font-size: 15px;
       font-weight: bold;
       height: 15px;

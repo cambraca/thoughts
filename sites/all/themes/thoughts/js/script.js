@@ -37,6 +37,12 @@
         $(this).closest('article').find('footer a.more').remove();
     })
   });
+  
+  $('article.node-thought.new .add-source').live('click', function(event) {
+    event.preventDefault();
+    $(this).closest('.node-thought').find('input[name=source]').show('fast').focus();
+    $(this).hide('fast');
+  });
 
   // To understand behaviors, see https://drupal.org/node/756722#behaviors
   Drupal.behaviors.my_custom_behavior = {
