@@ -1,0 +1,13 @@
+#block-feedback-form {
+  bottom: 0;
+
+  h2 {
+    font-family: $body-font;
+  }
+  .feedback-help {
+    font-size: 12px;
+  }
+  .form-item-message {
+    margin: 10px 0;
+  }
+}

@@ -2272,3 +2272,20 @@ body.node-type-thought .panel-2col .panel-col-first {
 body.node-type-thought .panel-2col .panel-col-last {
   width: 35%;
 }
+
+/* line 1, ../sass/misc/feedback.scss */
+#block-feedback-form {
+  bottom: 0;
+}
+/* line 4, ../sass/misc/feedback.scss */
+#block-feedback-form h2 {
+  font-family: "Quattrocento", serif;
+}
+/* line 7, ../sass/misc/feedback.scss */
+#block-feedback-form .feedback-help {
+  font-size: 12px;
+}
+/* line 10, ../sass/misc/feedback.scss */
+#block-feedback-form .form-item-message {
+  margin: 10px 0;
+}
