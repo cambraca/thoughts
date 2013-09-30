@@ -1,6 +1,9 @@
 <?php
 
+const THOUGHT_EDIT_THRESHOLD = 1800; //seconds (1800 = 30 min)
+
 include_once 'google_translate.inc';
+include_once 'thought.form.inc';
 
 /**
  * Implements hook_node_presave().
@@ -40,71 +43,7 @@ function thought_menu() {
 }
 
 function thought_create() {
-  $content = trim($_POST['content']);
-  $category = strtolower(trim(strip_tags($_POST['category'])));
-  $public = isset($_POST['public']) && $_POST['public'] ? 1 : 0;
-  $parent = isset($_POST['parent']) ? intval($_POST['parent']) : NULL;
-  $source = trim($_POST['source']);
-  if (!$content)
-    drupal_goto();
-  
-  global $user;
-  
-  $node = array(
-    'type' => 'thought',
-    'uid' => $user->uid,
-    'body' => array(
-      LANGUAGE_NONE => array(
-        array(
-          'value' => $content,
-          'format' => 'filtered_html',
-        )
-      )
-    ),
-    'field_public' => array(
-      LANGUAGE_NONE => array(
-        array(
-          'value' => $public,
-        )
-      )
-    ),
-    'field_source' => array(
-      LANGUAGE_NONE => array(
-        array(
-          'value' => $source,
-          'format' => 'source',
-        )
-      )
-    ),
-  );
-//  var_dump(check_markup($source, 'source')); exit;
-  if ($parent) {
-    $node['field_parent'] = array(
-      LANGUAGE_NONE => array(
-        array(
-          'target_id' => $parent,
-        )
-      )
-    );
-  }
-  if ($category) {
-    $vocabulary = taxonomy_vocabulary_machine_name_load('categories');
-    $tid = thought_taxonomy_term_check_term($category, $vocabulary->vid);
-    $node['field_category'] = array(
-      LANGUAGE_NONE => array(
-        array(
-          'vid' => $vocabulary->vid,
-          'tid' => $tid,
-        )
-      )
-    );
-  }
-  
-  $node = (object) $node;
-  node_object_prepare($node);
-  node_save($node);
-  
-  drupal_goto('latest');
+
 }
 
 
@@ -170,4 +109,51 @@ function thought_taxonomy_term_lookup_term($name, $vid) {
     ->condition('vid', $vid)
     ->execute()
     ->fetchObject();
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function thought_block_info() {
+  return array(
+    'thought_form' => array(
+      'info' => t('Thought add form'),
+    ),
+    'thought_form_edit' => array(
+      'info' => t('Thought edit form'),
+    ),
+    'thought_form_elaborate' => array(
+      'info' => t('Thought elaborate form'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function thought_block_view($delta = '') {
+  switch ($delta) {
+    case 'thought_form':
+      return array(
+        'subject' => NULL,
+        'content' => drupal_get_form('thought_form'),
+      );
+  }
+}
+
+function thought_theme() {
+  return array(
+    'thought_form_theme' => array(
+      'render element' => 'form',
+      'template' => 'templates/thought-form',
+    ),
+  );
+}
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function thought_ctools_plugin_directory($owner, $plugin_type) {
+  if ($owner == 'ctools' && in_array($plugin_type, array('content_types')))
+    return 'plugins/'.$plugin_type;
 }

@@ -5,6 +5,11 @@ article.node-thought {
   margin-bottom: 40px;
   max-width: 600px;
 
+  &.author-hidden {
+    .author {visibility: hidden;}
+    .content {border-radius: 10px;}
+  }
+
   &.new {
     input, textarea {&:focus {outline: 0;}}
 
@@ -23,8 +28,9 @@ article.node-thought {
       &::-moz-placeholder {color: $placeholder-text-color;}
       &:-ms-input-placeholder {color: $placeholder-text-color;}
     }
+    .source-wrapper {display: none;}
     input[name=source] {
-      display: none;
+      margin-top: 5px;
       color: $text-color;
       background-color: transparent;
       border: 0;
@@ -49,7 +55,7 @@ article.node-thought {
     > header > .parent {top: 0;}
     footer .field-name-field-category {margin-top: 0;}
     footer time {margin-top: 5px;}
-    footer .comment_count {margin-top: 4px;}
+    /*footer .comment_count {margin-top: 4px;}*/
   }
 
   > header {
@@ -68,10 +74,12 @@ article.node-thought {
       display: inline-block;
       padding: 0 5px;
       color: $bg-color;
+
       a {
         text-decoration: none;
         color: $bg-color;
       }
+
     }
 
     > .parent {
@@ -90,7 +98,7 @@ article.node-thought {
 
       .pointerevents & {top: 25px;}
 
-      input[type=button], input[type=submit], label, a {
+      input[type=button], input[type=submit], .form-type-checkbox, a {
         display: inline;
         background-color: $category-bg-color;
         border: 0;
@@ -110,11 +118,11 @@ article.node-thought {
         }
       }
 
-      label input[type=checkbox] {
+      .form-type-checkbox input[type=checkbox] {
         vertical-align: text-bottom;
       }
 
-      input[type=submit] {
+      input.submit-button {
         background-color: $save-color;
       }
     }
@@ -166,9 +174,6 @@ article.node-thought {
 
     border: 1px solid $border-color;
     border-radius: 0 10px 10px 10px;
-    &.author-hidden {
-      border-radius: 10px;
-    }
     padding: 0px 18px 0px 18px;
     min-height: 100px;
     color: $text-color;
@@ -291,10 +296,10 @@ article.node-thought {
       font-size: 11px;
       height: 19px;
       margin: 4px 18px 0 4px;
+      float: left;
       
       transition: $thought-hover-transition margin-top;
-      margin-top: 4px;
-      .pointerevents & {margin-top: -19px;}
+      /*.pointerevents & {margin-top: -19px;}*/
 
       span {
         background-image: url(../images/comment-count-right.png);
@@ -311,7 +316,7 @@ article.node-thought {
     time {
       color: $dim-text-color;
       font-size: 14px;
-      margin: 5px 0 0 12px;
+      margin: 5px 0 0;
 
       transition: $thought-hover-transition margin-top;
       margin-top: 5px;
@@ -327,6 +332,7 @@ article.node-thought {
       -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, .2) inset;
       box-shadow: 0 1px 4px rgba(0, 0, 0, .2) inset;
       padding: 5px;
+      margin-left: 8px;
 
       transition: $thought-hover-transition margin-top;
       margin-top: 0;

@@ -16,14 +16,17 @@ if ($show_author && arg(0) == 'user' && arg(1) == $uid)
 
 if ($is_main_thought)
   $classes .= ' highlighted';
+if (!$show_author)
+  $classes .= ' author-hidden';
 ?>
 <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <header>
-    <?php if ($show_author): ?>
+    <?php // if ($show_author): ?>
     <div class="author"><?php print $name; ?></div>
-    <?php endif; ?>
+    <?php // endif; ?>
     <?php print render($content['field_parent']); ?>
     <nav class="toolbar">
+      <?php if ($node->uid == $user->uid && (REQUEST_TIME - $node->created) < THOUGHT_EDIT_THRESHOLD) print l('Edit', 'node/'.$node->nid.'/edit'); ?>
       <?php if (!isset($_GET['elaborate']) || $node->nid != arg(1)) print l('Elaborate', 'node/'.$node->nid, array('query' => array('elaborate' => NULL))); ?>
     </nav>
   </header>
@@ -57,7 +60,7 @@ if ($is_main_thought)
     elseif ($body_length < 100)
       $css_size_class = ' small';
   ?>
-  <div class="content<?= $css_size_class ?><?php if (!$show_author) echo ' author-hidden'; ?><?php if ($is_main_thought) echo ' expanded'; ?>"
+  <div class="content<?= $css_size_class ?><?php if ($is_main_thought) echo ' expanded'; ?>"
     <?php if (!$is_main_thought) echo 'data-link="'.url('node/'.$node->nid).'"'?>>
     <div class="wrapper">
     <?php
@@ -81,10 +84,10 @@ if ($is_main_thought)
       <div class="comment_count"><span><?= $comment_count ?></span></div>
     <?php endif; ?>
     
-    <?php print render($content['field_category']); ?>
-    
     <time pubdate="<?= date('c', $node->created) ?>"><?= format_interval(time() - $node->created, 1).t(' ago') ?></time>
 
+    <?php print render($content['field_category']); ?>
+    
   </footer>
 
   <?php /*print render($content['links']); ?>

@@ -40,7 +40,7 @@
   
   $('article.node-thought.new .add-source').live('click', function(event) {
     event.preventDefault();
-    $(this).closest('.node-thought').find('input[name=source]').show('fast').focus();
+    $(this).closest('.node-thought').find('.source-wrapper').slideDown().find('input').focus();
     $(this).hide('fast');
   });
 
