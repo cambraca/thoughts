@@ -147,6 +147,10 @@ function thought_theme() {
       'render element' => 'form',
       'template' => 'templates/thought-form',
     ),
+    'thought_comment_form_theme' => array(
+      'render element' => 'form',
+      'template' => 'templates/comment-form',
+    ),
   );
 }
 

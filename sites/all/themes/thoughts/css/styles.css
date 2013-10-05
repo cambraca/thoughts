@@ -2191,36 +2191,97 @@ article.node-thought footer .field-name-field-category a, article.node-thought f
 }
 
 /* line 1, ../sass/thoughts/comments.scss */
+.pane-node-comments {
+  margin-bottom: 30px;
+}
+
+/* line 5, ../sass/thoughts/comments.scss */
 article.comment {
   max-width: 350px;
   margin-bottom: 10px;
 }
-/* line 5, ../sass/thoughts/comments.scss */
+/* line 10, ../sass/thoughts/comments.scss */
+article.comment.new .form-item {
+  margin: 0;
+}
+/* line 13, ../sass/thoughts/comments.scss */
+article.comment.new header input[type=submit] {
+  float: left;
+  display: inline;
+  background-color: #b3b3b3;
+  border: 0;
+  border-radius: 6px;
+  color: #ebebeb;
+  font-family: Tahoma, Verdana, "DejaVu Sans", sans-serif;
+  font-size: 10px;
+  line-height: 12px;
+  font-weight: normal;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1px 5px;
+  margin: 0 0 0 5px;
+}
+/* line 29, ../sass/thoughts/comments.scss */
+article.comment.new header input[type=submit]:hover {
+  background-color: #525771;
+}
+/* line 35, ../sass/thoughts/comments.scss */
+article.comment.new > .field-name-comment-body {
+  max-height: inherit;
+}
+/* line 39, ../sass/thoughts/comments.scss */
+article.comment.new textarea {
+  background: transparent;
+  border: 0;
+  min-width: 100%;
+  color: #999999;
+}
+/* line 45, ../sass/thoughts/comments.scss */
+article.comment.new textarea::-webkit-input-placeholder {
+  color: #cccccc;
+}
+/* line 46, ../sass/thoughts/comments.scss */
+article.comment.new textarea:-moz-placeholder {
+  color: #cccccc;
+}
+/* line 47, ../sass/thoughts/comments.scss */
+article.comment.new textarea::-moz-placeholder {
+  color: #cccccc;
+}
+/* line 48, ../sass/thoughts/comments.scss */
+article.comment.new textarea:-ms-input-placeholder {
+  color: #cccccc;
+}
+/* line 51, ../sass/thoughts/comments.scss */
+article.comment.new .grippie {
+  display: none;
+}
+/* line 54, ../sass/thoughts/comments.scss */
 article.comment > header {
   font-size: 10px;
   line-height: 16px;
   text-align: right;
 }
-/* line 10, ../sass/thoughts/comments.scss */
+/* line 59, ../sass/thoughts/comments.scss */
 article.comment > header > time {
   color: #bbbbbb;
   margin-right: 5px;
 }
-/* line 15, ../sass/thoughts/comments.scss */
+/* line 64, ../sass/thoughts/comments.scss */
 article.comment > header > .author {
   background-color: #999999;
   border-radius: 6px 6px 0 0;
   display: inline-block;
   padding: 0 3px;
 }
-/* line 21, ../sass/thoughts/comments.scss */
+/* line 70, ../sass/thoughts/comments.scss */
 article.comment > header > .author, article.comment > header > .author a {
   /*        font-size: 10px;
           line-height: 16px;*/
   color: #ebebeb;
   text-decoration: none;
 }
-/* line 30, ../sass/thoughts/comments.scss */
+/* line 79, ../sass/thoughts/comments.scss */
 article.comment > .field-name-comment-body {
   border: 1px solid #999999;
   border-radius: 6px 0 6px 0;
@@ -2231,11 +2292,11 @@ article.comment > .field-name-comment-body {
   max-height: 130px;
   overflow-y: auto;
 }
-/* line 40, ../sass/thoughts/comments.scss */
+/* line 89, ../sass/thoughts/comments.scss */
 article.comment > .field-name-comment-body p {
   margin: 0 0 5px 0;
 }
-/* line 45, ../sass/thoughts/comments.scss */
+/* line 94, ../sass/thoughts/comments.scss */
 article.comment:after {
   content: "";
   background-image: url(../images/comment.png);
@@ -2245,6 +2306,7 @@ article.comment:after {
   height: 13px;
   top: -1px;
   position: relative;
+  display: block;
   visibility: visible;
 }
 

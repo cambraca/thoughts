@@ -1,6 +1,5 @@
 <?php // dpm($form); ?>
 
-<!--<input type="hidden" name="parent" value="%node:nid" />-->
 <article class="node-thought new">
   <header>
     <div class="author"><?= t('me') ?></div>

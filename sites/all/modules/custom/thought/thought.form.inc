@@ -152,3 +152,19 @@ function thought_form_submit($form, &$form_state) {
   if (!$form_state['redirect'])
     $form_state['redirect'] = 'latest';
 }
+
+function thought_form_comment_form_alter(&$form) {
+  $form['#theme'] = 'thought_comment_form_theme';
+  $form['author']['#type'] = 'hidden';
+  $form['comment_body'][LANGUAGE_NONE][0]['#title_display'] = 'invisible';
+  $form['comment_body'][LANGUAGE_NONE][0]['#attributes'] = array('placeholder' => 'Add comment');
+  $form['comment_body']['#after_build'][] = '_thoughts_customize_comment_form';
+  unset($form['actions']['preview']);
+}
+
+function _thoughts_customize_comment_form(&$form) {
+//  echo '<pre>'; print_r($form); exit;
+//  unset($form[LANGUAGE_NONE][0]['format']['guidelines']);
+  $form[LANGUAGE_NONE][0]['format']['#access'] = FALSE;
+  return $form;
+}

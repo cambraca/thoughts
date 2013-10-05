@@ -130,19 +130,3 @@ function STARTERKIT_preprocess_block(&$variables, $hook) {
   //}
 }
 // */
-
-function thoughts_form_comment_form_alter(&$form, &$form_state) {
-//dpm($form); //shows original $form array 
-  $form['author']['#type'] = 'hidden';
-  $form['comment_body'][LANGUAGE_NONE][0]['#title_display'] = 'invisible';
-  $form['comment_body'][LANGUAGE_NONE][0]['#attributes'] = array('placeholder' => 'Add comment');
-  $form['comment_body']['#after_build'][] = '_thoughts_customize_comment_form';
-  unset($form['actions']['preview']);
-}
-
-function _thoughts_customize_comment_form(&$form) {
-//  echo '<pre>'; print_r($form); exit;
-//  unset($form[LANGUAGE_NONE][0]['format']['guidelines']);
-  $form[LANGUAGE_NONE][0]['format']['#access'] = FALSE;
-  return $form;
-}

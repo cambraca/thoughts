@@ -1,6 +1,55 @@
+.pane-node-comments {
+  margin-bottom: 30px;
+}
+
 article.comment {
   max-width: 350px;
   margin-bottom: 10px;
+
+  &.new {
+    .form-item {margin: 0;}
+
+    header {
+      input[type=submit] {
+        float: left;
+        display: inline;
+        background-color: $category-bg-color;
+        border: 0;
+        border-radius: 6px;
+        color: $bg-color;
+        font-family: $tahoma;
+        font-size: 10px;
+        line-height: 12px;
+        font-weight: normal;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1px 5px;
+        margin: 0 0 0 5px;
+
+        &:hover {
+          background-color: $text-color;
+        }
+      }
+    }
+
+    > .field-name-comment-body {
+      max-height: inherit;
+    }
+
+    textarea {
+      background: transparent;
+      border: 0;
+      min-width: 100%;
+      color: $comment-color;
+
+      &::-webkit-input-placeholder {color: $placeholder-comment-color;}
+      &:-moz-placeholder {color: $placeholder-comment-color;}
+      &::-moz-placeholder {color: $placeholder-comment-color;}
+      &:-ms-input-placeholder {color: $placeholder-comment-color;}
+    }
+
+    .grippie {display: none;}
+  }
 
   > header {
     font-size: 10px;
@@ -51,6 +100,7 @@ article.comment {
     height: 13px;
     top: -1px;
     position: relative;
+    display: block;
     visibility: visible;
   }
 
