@@ -1,4 +1,4 @@
-<?php dpm($form, 'comment form'); ?>
+<?php // dpm($form, 'comment form'); ?>
 
 <article class="comment new">
   <header>
